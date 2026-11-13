@@ -1,21 +1,37 @@
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f8fb;
+    background-color: #F5EEE5;
+}
+
+body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
 
 .cabecalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
-    background-color: #cce6f4;
-    border-bottom: 10px solid #7db9c2;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
 }
 
 .esquerda {
@@ -27,6 +43,7 @@ body {
 #titulo {
     font-size: 25px;
     margin-right: 20px;
+    color: #F5EEE5;
 }
 
 #logo {
@@ -37,14 +54,20 @@ body {
 
 .navegacao {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 25px;
 }
 
 .navegacao a {
     text-decoration: none;
-    color: #000;
+    color: #F5EEE5;
     font-weight: bold;
     position: relative;
+    transition: color 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
 }
 
 #quem_somos,
@@ -57,10 +80,10 @@ body {
     transform: scale(1.05);
 }
 
-#titulo2 {
-    padding: 20px;
-    margin-left: 140px;
-}
+
+/* =========================================
+   GRADE DE MÚSICAS
+========================================= */
 
 .grade-musicas {
     display: flex;
@@ -73,14 +96,14 @@ body {
 }
 
 .musica {
-    background-color: #edf5f9;
-    border: 1px solid #ccc;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
     border-radius: 10px;
     width: 200px;
     padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.12);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .link-musica {
@@ -91,87 +114,254 @@ body {
 
 .musica:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(42, 18, 22, 0.2);
     cursor: pointer;
 }
 
 .musica h4 {
     margin: 10px 0 5px;
     font-size: 18px;
-    color: #000000;
+    color: #2A1216;
 }
 
 .musica p {
     margin: 4px 0;
     font-size: 14px;
-    color: #555;
+    color: #542A3D;
 }
 
 .tocadas {
     font-weight: bold;
-    color: #777c77;
+    color: #94242C;
     margin-top: 8px;
 }
 
-.rodape {
-    text-align: center;
-    padding: 20px;
-    background-color: #cce6f4;
-    margin-top: auto;
+
+/* =========================================
+   HISTÓRIA DA GUITARRA
+========================================= */
+
+.comoSurgiu {
+    background-color: #F5EEE5;
+    padding: 65px 10%;
 }
+
+.historia-guitarra {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px;
+}
+
+.imagem-historia {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-historia img {
+    width: 100%;
+    height: 550px;
+    object-fit: contain;
+    background-color: #1A060B;
+    border-radius: 10px;
+}
+
+.texto-historia {
+    width: 50%;
+}
+
+.texto-historia span {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.texto-historia h2 {
+    color: #2A1216;
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.texto-historia p {
+    color: #542A3D;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   MELHORES GUITARRISTAS
+========================================= */
+
+.melhoresGuitarristas {
+    background-color: #2A1216;
+    color: #F5EEE5;
+    padding: 60px 0;
+}
+
+#titulo2 {
+    text-align: center;
+    color: #D4822E;
+    font-size: 32px;
+    margin: 0 0 30px;
+    padding: 20px;
+}
+
+
+/* =========================================
+   CARROSSEL
+========================================= */
 
 .carrossel-guitarristas {
     padding: 15px;
-
-    /* max-width: 640px | define que este elemento 
-    terá no maximo 640px de largura*/
     max-width: 640px;
-
-    /*margin | usada para centralizar elementos de bloco, ex: div*/
     margin: 0 auto;
 }
 
 .galeria {
     display: flex;
-
-    /*flex-flow: |junta direção e quebra de linha.
-      row | coloca os items um ao lado do outro.
-      row wrap | não deixa os elementos pulem par linha de baixo */
     flex-flow: row nowrap;
-    gap: 15px;
+    gap: 50px;
+    align-items: flex-start;
 }
 
 .container-galeria {
-    /*overflow-x: hidden | esconde tudo o que ultrapassar 
-    a largura horizontal de um elemento. 
-    no meu caso, o pai (carrossel-guitarristas)*/
     overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
 }
 
 #div_exibir {
-
-    /*display: contents | exibe apenas o conteudo, 
-    fazendo a div 'desaparecer' na tela*/
     display: contents;
 }
 
-#div_exibir img {
+.guitarrista {
     width: 380px;
-    height: 380px;
+    flex-shrink: 0;
+    text-align: center;
+    color: #F5EEE5;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .item {
-    width: 250px;
-    height: 250px;
-    flex-shrink: 0;
+    width: 380px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #542A3D;
     opacity: 0.6;
     transition: all 600ms ease-in-out;
 }
 
 .item-ativo {
     opacity: 1;
-
+    border-color: #D4822E;
 }
 
-.container-galeria::-webkit-scrollbar{
+.container-galeria::-webkit-scrollbar {
     display: none;
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+    margin-top: auto;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Cabeçalho */
+
+    .cabecalho {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .esquerda {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #logo {
+        height: 75px;
+    }
+
+    .navegacao {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+
+
+    /* História da guitarra */
+
+    .comoSurgiu {
+        padding: 35px 5%;
+    }
+
+    .historia-guitarra {
+        flex-direction: column;
+        padding: 15px;
+        gap: 25px;
+    }
+
+    .imagem-historia,
+    .texto-historia {
+        width: 100%;
+    }
+
+    .imagem-historia img {
+        height: 350px;
+    }
+
+    .texto-historia h2 {
+        font-size: 26px;
+    }
+
+
+    /* Carrossel */
+
+    .carrossel-guitarristas {
+        max-width: 100%;
+    }
+
+    .guitarrista {
+        width: 300px;
+    }
+
+    .item {
+        width: 300px;
+        height: 300px;
+    }
+
+
+    /* Músicas */
+
+    .grade-musicas {
+        justify-content: center;
+        padding: 20px;
+    }
+
 }

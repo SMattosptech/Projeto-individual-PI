@@ -101,14 +101,62 @@ for (let i = 0; i < listaGuitarristas.length; i++) {
     if (i == 0) {
 
         div_exibir.innerHTML += `
-        ${listaGuitarristas[i].nome}<br>
-        <br> <img src="${listaGuitarristas[i].img}" class="item item"><br>`;
+        <div class="guitarrista">
+
+            ${listaGuitarristas[i].nome}<br>
+            <br>
+
+            <img src="${listaGuitarristas[i].img}" class="item item-ativo">
+
+        </div>`;
+
     } else {
 
-        div_exibir.innerHTML += ` 
-        ${listaGuitarristas[i].nome}<br>
-        <br> <img src="${listaGuitarristas[i].img}" class ="item"><br>`;
+        div_exibir.innerHTML += `
+        <div class="guitarrista">
+
+            ${listaGuitarristas[i].nome}<br>
+            <br>
+
+            <img src="${listaGuitarristas[i].img}" class="item">
+
+        </div>`;
     }
 
 
 }
+
+
+const guitarristas = document.querySelectorAll(".guitarrista");
+
+let guitarristaAtual = 0;
+
+const quantidadeGuitarristas = guitarristas.length;
+
+function avancarCarrossel() {
+
+    // Retira o destaque da imagem atual
+    guitarristas[guitarristaAtual].querySelector(".item").classList.remove("item-ativo");
+
+    // Avança para o próximo guitarrista
+    guitarristaAtual++;
+
+    // Volta para o primeiro quando chegar ao final
+    if (guitarristaAtual >= quantidadeGuitarristas) {
+        guitarristaAtual = 0;
+    }
+
+    // Destaca a imagem do próximo guitarrista
+    guitarristas[guitarristaAtual].querySelector(".item").classList.add("item-ativo");
+
+    // Movimenta a caixa inteira para o centro
+    guitarristas[guitarristaAtual].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest"
+    });
+
+}
+
+// Executa automaticamente a cada 3 segundos
+setInterval(avancarCarrossel, 3000);
