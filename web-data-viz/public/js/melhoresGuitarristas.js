@@ -23,6 +23,7 @@ let listaGuitarristas = [
     {
         nome: "Joe Satriani",
         img: "./assets/imgs/Joe-Satriani.jpg"
+
     },
     {
         nome: "Stevie Ray Vaughan",
@@ -42,7 +43,7 @@ let listaGuitarristas = [
     },
     {
         nome: "B.B. King",
-        img: "./assets/imgs/B.B.-King.jpg"
+        img: "./assets/imgs/BB-King.jpg"
     },
     {
         nome: "Gary Moore",
@@ -96,7 +97,18 @@ let listaGuitarristas = [
 
 
 for (let i = 0; i < listaGuitarristas.length; i++) {
-    let div_exibir;
-     div_exibir.innerHTML += ` ${listaGuitarristas[i]}<br>`
+
+    if (i == 0) {
+
+        div_exibir.innerHTML += `
+        ${listaGuitarristas[i].nome}<br>
+        <br> <img src="${listaGuitarristas[i].img}" class="item item"><br>`;
+    } else {
+
+        div_exibir.innerHTML += ` 
+        ${listaGuitarristas[i].nome}<br>
+        <br> <img src="${listaGuitarristas[i].img}" class ="item"><br>`;
+    }
+
 
 }

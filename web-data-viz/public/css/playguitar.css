@@ -118,3 +118,60 @@ body {
     background-color: #cce6f4;
     margin-top: auto;
 }
+
+.carrossel-guitarristas {
+    padding: 15px;
+
+    /* max-width: 640px | define que este elemento 
+    terá no maximo 640px de largura*/
+    max-width: 640px;
+
+    /*margin | usada para centralizar elementos de bloco, ex: div*/
+    margin: 0 auto;
+}
+
+.galeria {
+    display: flex;
+
+    /*flex-flow: |junta direção e quebra de linha.
+      row | coloca os items um ao lado do outro.
+      row wrap | não deixa os elementos pulem par linha de baixo */
+    flex-flow: row nowrap;
+    gap: 15px;
+}
+
+.container-galeria {
+    /*overflow-x: hidden | esconde tudo o que ultrapassar 
+    a largura horizontal de um elemento. 
+    no meu caso, o pai (carrossel-guitarristas)*/
+    overflow-x: auto;
+}
+
+#div_exibir {
+
+    /*display: contents | exibe apenas o conteudo, 
+    fazendo a div 'desaparecer' na tela*/
+    display: contents;
+}
+
+#div_exibir img {
+    width: 380px;
+    height: 380px;
+}
+
+.item {
+    width: 250px;
+    height: 250px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: all 600ms ease-in-out;
+}
+
+.item-ativo {
+    opacity: 1;
+
+}
+
+.container-galeria::-webkit-scrollbar{
+    display: none;
+}
