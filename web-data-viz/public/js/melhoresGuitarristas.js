@@ -1,4 +1,6 @@
-// lista de JSON 
+
+/* LISTA DE GUITARRISTAS */
+
 let listaGuitarristas = [
     {
         nome: "Jimi Hendrix",
@@ -23,7 +25,6 @@ let listaGuitarristas = [
     {
         nome: "Joe Satriani",
         img: "./assets/imgs/Joe-Satriani.jpg"
-
     },
     {
         nome: "Stevie Ray Vaughan",
@@ -96,6 +97,12 @@ let listaGuitarristas = [
 ];
 
 
+/* EXIBIÇÃO DOS GUITARRISTAS */
+
+const div_exibir = document.querySelector("#div_exibir");
+
+div_exibir.innerHTML = "";
+
 for (let i = 0; i < listaGuitarristas.length; i++) {
 
     if (i == 0) {
@@ -123,40 +130,52 @@ for (let i = 0; i < listaGuitarristas.length; i++) {
         </div>`;
     }
 
-
 }
 
 
+/* CONFIGURAÇÃO DO CARROSSEL */
+
 const guitarristas = document.querySelectorAll(".guitarrista");
+
+const containerGaleria = document.querySelector(".container-galeria");
 
 let guitarristaAtual = 0;
 
 const quantidadeGuitarristas = guitarristas.length;
+
+
+/* FUNÇÃO PARA AVANÇAR O CARROSSEL */
 
 function avancarCarrossel() {
 
     // Retira o destaque da imagem atual
     guitarristas[guitarristaAtual].querySelector(".item").classList.remove("item-ativo");
 
+
     // Avança para o próximo guitarrista
     guitarristaAtual++;
 
+
     // Volta para o primeiro quando chegar ao final
     if (guitarristaAtual >= quantidadeGuitarristas) {
+
         guitarristaAtual = 0;
+
     }
+
 
     // Destaca a imagem do próximo guitarrista
     guitarristas[guitarristaAtual].querySelector(".item").classList.add("item-ativo");
 
-    // Movimenta a caixa inteira para o centro
-    guitarristas[guitarristaAtual].scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest"
+
+   // Move diretamente para a posição exata (quando voltar para 0, a conta dá 0 e ele retorna ao início)
+    containerGaleria.scrollTo({
+        left: guitarristaAtual * (guitarristas[0].offsetWidth + 50),
+        behavior: "smooth"
     });
 
 }
+
 
 // Executa automaticamente a cada 3 segundos
 setInterval(avancarCarrossel, 3000);
