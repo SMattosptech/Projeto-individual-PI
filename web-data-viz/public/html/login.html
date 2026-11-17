@@ -6,82 +6,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AquaTech | Login</title>
+    <title>PlayGuitar | Login</title>
 
     <script src="./js/sessao.js"></script>
 
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
 
-    <!--Header-->
+    <img class="imagem-fundo-login" src="../assets/imgs/img-fundo-login.jpg" alt="Guitarra PlayGuitar">
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
+    <!-- Cabeçalho (Idêntico ao da home) -->
+    <header class="cabecalho">
+        <div class="esquerda">
+            <a href="../playguitar.html">
+                <img id="logo" src="../assets/imgs/logo.png" alt="Logo PlayGuitar">
+            </a>
+            <h1 id="titulo">PlayGuitar</h1>
         </div>
-    </div>
 
+        <nav class="navegacao">
+            <a href="login.html" id="login">Login</a>
+            <a href="cadastro.html" id="cadastro">Cadastro</a>
+            <a href="../html/contato.html" id="contatos">Contato</a>
+        </nav>
+    </header>
 
-    <div class="login">
+    <!-- Área principal dividida -->
+    <main class="login">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
                 <span id="mensagem_erro"></span>
             </div>
         </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
+
+        <!-- Painel Esquerdo: Textos originais preservados -->
+        <section class="painel-boas-vindas">
+            <div class="selo-wrapper">
+                <span class="selo">MINHA VIDA EM SEIS CORDAS</span>
+            </div>
+            <h2>Afine, entre e toque.</h2>
+            <p>
+                Acesse sua conta para acompanhar conteúdos sobre guitarra,
+                músicas, dicas e técnicas.
+            </p>
+        </section>
+
+        <!-- Painel Direito: O Formulário Redesenhado -->
+        <section class="container">
+            <div class="card-login">
+                <div class="card-header-text">
+                    <h2>Bem-vindo de volta</h2>
+                    <p class="sub-aviso">Insira suas credenciais para continuar.</p>
+                </div>
+
                 <div class="formulario">
                     <div class="campo">
                         <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
+                        <input id="email_input" type="text" placeholder="seuemail@exemplo.com">
                     </div>
+
                     <div class="campo">
                         <span>Senha:</span>
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
+
                     <button class="botao" onclick="entrar()">Entrar</button>
                 </div>
 
+                <p class="link-cadastro">
+                    Ainda não possui uma conta? <a href="cadastro.html">Crie uma</a>
+                </p>
+
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <img src="./assets/circle-loading.gif" id="loading-gif" alt="Carregando...">
                 </div>
 
                 <div id="div_erros_login"></div>
             </div>
-        </div>
-    </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
-        </div>
-    </div>
-    <!--footer fim-->
+        </section>
+    </main>
 
 </body>
-
-</html>
 
 <script>
 
@@ -89,8 +100,8 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        let emailVar = email_input.value;
+        let senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
