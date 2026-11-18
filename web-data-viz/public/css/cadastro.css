@@ -1,0 +1,82 @@
+
+/* =========================================
+   CADASTRO: ajustes sobre o login.css
+   (carregue este arquivo DEPOIS do login.css)
+========================================= */
+
+/* Menu: marca Cadastro como página atual */
+
+#login {
+    color: #F5EEE5;
+}
+
+#login:hover {
+    color: #D4822E;
+}
+
+#cadastro {
+    color: #D4822E;
+}
+
+/* Remove a aparência de link do título PlayGuitar */
+
+.esquerda a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Ajustes do formulário */
+
+.formulario {
+    gap: 11px;
+}
+
+.formulario .campo input {
+    padding: 11px 14px;
+}
+
+.card-header-text {
+    margin-bottom: 18px;
+}
+
+.login .container {
+    padding: 28px 40px;
+}
+
+/* =========================================
+   LAYOUT ESPELHADO: foto à direita,
+   formulário à esquerda
+   (só em telas grandes; no celular fica igual ao login)
+========================================= */
+
+@media (min-width: 961px) {
+
+    .imagem-fundo-login {
+        left: auto;
+        right: 0;
+        object-position: 35% center;
+    }
+
+    body::before {
+        left: auto;
+        right: 0;
+    }
+
+    .login .container {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .painel-boas-vindas {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* O aviso aparece no topo da metade esquerda */
+
+    .alerta_erro {
+        right: auto;
+        left: 0;
+    }
+
+}
