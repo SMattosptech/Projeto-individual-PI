@@ -1,0 +1,810 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5EEE5;
+    color: #2A1216;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   CABEÇALHO (igual ao da home)
+========================================= */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   INTRODUÇÃO (faixa vinho, como a seção de guitarristas da home)
+========================================= */
+
+.hero {
+    padding: 64px 24px 80px;
+    background:
+        radial-gradient(circle at 88% 15%, rgba(212, 130, 46, 0.30), transparent 45%),
+        radial-gradient(circle at 8% 95%, rgba(242, 194, 48, 0.14), transparent 40%),
+        #2A1216;
+    text-align: center;
+}
+
+.hero-interno {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hero-conteudo {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.selo {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #D4822E;
+    color: #F2C230;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 0 0 18px;
+    color: #F5EEE5;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+}
+
+.hero .destaque {
+    color: #D4822E;
+}
+
+.hero p {
+    max-width: 580px;
+    margin: 0 auto;
+    color: #E8D8C8;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.tempo-estimado {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(245, 238, 229, 0.25);
+    background-color: rgba(245, 238, 229, 0.08);
+    color: #F5EEE5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Quando uma imagem for adicionada (ver comentário no HTML) */
+
+.hero-interno.com-imagem {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.hero-interno.com-imagem .hero-conteudo {
+    margin: 0;
+    max-width: none;
+}
+
+.hero-interno.com-imagem p {
+    margin: 0;
+}
+
+.hero-imagem img {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 12px 12px 0 #D4822E;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.perfil {
+    flex: 1;
+    padding: 50px 20px 80px;
+}
+
+.formulario-perfil {
+    max-width: 760px;
+    margin: 0 auto;
+    counter-reset: pergunta;
+}
+
+/* Grupos de perguntas */
+
+.grupo {
+    margin-top: 40px;
+}
+
+.grupo:first-child {
+    margin-top: 0;
+}
+
+.grupo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 16px;
+    color: #94242C;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.grupo-titulo::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #D8C4B1;
+}
+
+
+/* Cartão de cada pergunta */
+
+.pergunta {
+    margin-bottom: 16px;
+    padding: 26px 28px;
+    background-color: #FFFDF8;
+    border: 1px solid #E2D9CE;
+    border-radius: 16px;
+    box-shadow: 0 10px 18px -10px rgba(42, 18, 22, 0.28);
+    counter-increment: pergunta;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pergunta:focus-within {
+    border-color: #D4B78F;
+}
+
+.pergunta.com-erro {
+    border-color: #DC2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    animation: tremer 0.4s ease;
+}
+
+.pergunta-topo {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+/* Número da pergunta: conta só as perguntas visíveis */
+
+.numero {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #2A1216;
+    color: #F2C230;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.numero::before {
+    content: counter(pergunta);
+}
+
+.pergunta-titulo {
+    flex: 1;
+    margin: 0;
+    padding-top: 5px;
+    color: #2A1216;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.etiqueta {
+    margin-top: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.etiqueta.obrigatoria {
+    background-color: #FDECD4;
+    color: #94242C;
+}
+
+.etiqueta.opcional {
+    background-color: #EFE8DC;
+    color: #7A6A6D;
+}
+
+
+/* =========================================
+   PERGUNTAS CONDICIONAIS (2 e 3)
+========================================= */
+
+.condicional {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.5s ease, opacity 0.4s ease;
+}
+
+.condicional.aberto {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.condicional-interno {
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* quando fechadas, as perguntas não entram na contagem */
+
+.condicional:not(.aberto) .pergunta {
+    counter-increment: none;
+}
+
+
+/* =========================================
+   OPÇÕES DE RESPOSTA
+========================================= */
+
+.opcoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.opcoes.tres {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.opcao {
+    position: relative;
+    display: block;
+}
+
+.opcao input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.caixa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #E2D9CE;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    color: #2A1216;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: border-color 0.2s ease, background-color 0.2s ease,
+                box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* bolinha de seleção */
+
+.caixa::before {
+    content: "";
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #CDBFAE;
+    background-color: #FFFFFF;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.opcao:hover .caixa {
+    border-color: #D4822E;
+    transform: translateY(-1px);
+}
+
+.opcao input:checked + .caixa {
+    border-color: #D4822E;
+    background-color: #FFF4E3;
+    box-shadow: 0 0 0 3px rgba(212, 130, 46, 0.14);
+}
+
+.opcao input:checked + .caixa::before {
+    border-color: #D4822E;
+    background: radial-gradient(circle, #D4822E 0 45%, #FFFFFF 50%);
+}
+
+.opcao input:focus-visible + .caixa {
+    outline: 3px solid rgba(242, 194, 48, 0.75);
+    outline-offset: 2px;
+}
+
+
+/* Pergunta 5: opções em formato de "pílulas" */
+
+.opcoes.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chips .caixa {
+    padding: 11px 18px 11px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+.limpar {
+    margin-top: 14px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #94242C;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #D4822E;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.limpar:hover {
+    color: #D4822E;
+}
+
+
+/* =========================================
+   CAMPOS DE TEXTO
+========================================= */
+
+.campo-texto input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #E2D9CE;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #2A1216;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.campo-texto input::placeholder {
+    color: #B5AFA6;
+}
+
+/* preenchido */
+
+.campo-texto input:not(:placeholder-shown) {
+    border-color: #D4B78F;
+    background-color: #FFFBF4;
+}
+
+/* em foco */
+
+.campo-texto input:focus {
+    border-color: #D4822E;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(212, 130, 46, 0.14);
+}
+
+
+/* =========================================
+   MENSAGENS DE ERRO
+========================================= */
+
+.mensagem-erro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 0;
+    color: #991B1B;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.mensagem-erro::before {
+    content: "!";
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #DC2626;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   BOTÃO ENVIAR
+========================================= */
+
+.acoes {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.botao {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #D4822E;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(212, 130, 46, 0.25);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.botao:hover {
+    background-color: #B86B1E;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(212, 130, 46, 0.35);
+}
+
+.botao:disabled {
+    cursor: wait;
+    opacity: 0.85;
+    transform: none;
+}
+
+/* bolinha girando enquanto "envia" */
+
+.botao.enviando #textoBotao::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #FFFFFF;
+    border-radius: 50%;
+    vertical-align: -2px;
+    animation: girar 0.7s linear infinite;
+}
+
+.nota {
+    margin: 0;
+    color: #7A6A6D;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CONFIRMAÇÃO
+========================================= */
+
+.confirmacao {
+    max-width: 560px;
+    margin: 20px auto 0;
+    padding: 44px 34px;
+    text-align: center;
+    background-color: #FFFDF8;
+    border: 1px solid #E2D9CE;
+    border-top: 5px solid #F2C230;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px -18px rgba(42, 18, 22, 0.4);
+    animation: subir 0.6s ease-out both;
+}
+
+.check {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #F8D45A, #D4822E);
+    box-shadow: 0 8px 20px rgba(212, 130, 46, 0.4);
+    animation: pulo 0.6s ease-out 0.2s both;
+}
+
+.confirmacao h2 {
+    margin: 0 0 12px;
+    color: #2A1216;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.confirmacao p {
+    margin: 0 auto 28px;
+    max-width: 400px;
+    color: #542A3D;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.confirmacao-botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.botao-link {
+    display: block;
+}
+
+.botao-secundario {
+    padding: 8px 4px;
+    border: none;
+    background: none;
+    color: #94242C;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #F2C230;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.botao-secundario:hover {
+    color: #D4822E;
+}
+
+
+/* =========================================
+   RODAPÉ (igual ao da home)
+========================================= */
+
+.rodape {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+@keyframes tremer {
+    0%, 100% { transform: translateX(0); }
+    25%      { transform: translateX(-6px); }
+    75%      { transform: translateX(6px); }
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes subir {
+    from { transform: translateY(24px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes pulo {
+    0%   { transform: scale(0.4); opacity: 0; }
+    70%  { transform: scale(1.12); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .condicional,
+    .pergunta.com-erro,
+    .confirmacao,
+    .check {
+        animation: none;
+        transition: none;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 860px) {
+
+    .hero-interno.com-imagem {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-interno.com-imagem p {
+        margin: 0 auto;
+    }
+
+    .hero-imagem img {
+        height: 260px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    /* Cabeçalho */
+
+    .cabecalho {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .esquerda {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #logo {
+        height: 75px;
+    }
+
+    .navegacao {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+
+    /* Introdução */
+
+    .hero {
+        padding: 44px 20px 56px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Formulário */
+
+    .perfil {
+        padding: 36px 16px 60px;
+    }
+
+    .pergunta {
+        padding: 22px 18px;
+    }
+
+    .pergunta-titulo {
+        font-size: 17px;
+    }
+
+    .opcoes,
+    .opcoes.tres {
+        grid-template-columns: 1fr;
+    }
+
+    /* a etiqueta vai para baixo do título, para não apertar o texto */
+
+    .pergunta-topo {
+        flex-wrap: wrap;
+    }
+
+    .etiqueta {
+        margin-left: 50px;
+        margin-top: -4px;
+    }
+
+    .confirmacao {
+        padding: 36px 22px;
+    }
+
+}

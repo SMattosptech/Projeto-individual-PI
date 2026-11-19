@@ -8,7 +8,7 @@
 
     <title>PlayGuitar | Login</title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,14 +24,13 @@
     <!-- Cabeçalho (Idêntico ao da home) -->
     <header class="cabecalho">
         <div class="esquerda">
-            <a href="../playguitar.html">
+            <a href="../index.html">
                 <img id="logo" src="../assets/imgs/logo.png" alt="Logo PlayGuitar">
             </a>
             <h1 id="titulo">PlayGuitar</h1>
         </div>
 
         <nav class="navegacao">
-            <a href="login.html" id="login">Login</a>
             <a href="cadastro.html" id="cadastro">Cadastro</a>
             <a href="../html/contato.html" id="contatos">Contato</a>
         </nav>
@@ -68,7 +67,7 @@
                 <div class="formulario">
                     <div class="campo">
                         <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="seuemail@exemplo.com">
+                        <input id="email_input" type="email" placeholder="seuemail@exemplo.com">
                     </div>
 
                     <div class="campo">
@@ -84,7 +83,7 @@
                 </p>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif" alt="Carregando...">
+                    <img src="../assets/circle-loading.gif" id="loading-gif" alt="Carregando...">
                 </div>
 
                 <div id="div_erros_login"></div>
@@ -97,73 +96,76 @@
 <script>
 
 
-    function entrar() {
-        aguardar();
+ 
+function entrar() {
+    let emailVar = email_input.value;
+    let senhaVar = senha_input.value;
 
-        let emailVar = email_input.value;
-        let senhaVar = senha_input.value;
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
+    // Verificando se os campos estão vazios
+    if (emailVar == "" || senhaVar == "") {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Preencha todos os campos.";
+        setTimeout(sumirMensagem, 5000);
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // Iniciando o carregamento
+    aguardar();
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            resposta.json().then(function (json) {
+
+                // Guardando os dados do usuário
+                sessionStorage.ID_USUARIO = json.id_usuario;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.EMAIL_USUARIO = json.email;
+
+                // Verificando se o usuário já preencheu o perfil
+                setTimeout(function () {
+                    if (json.possuiPerfil) {
+                        window.location = "../index.html";
+                    } else {
+                        window.location = "formulario.html";
+                    }
+                }, 1000);
+
+            });
+
+        } else {
+            resposta.text().then(function (texto) {
+                finalizarAguardar();
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = texto;
+                setTimeout(sumirMensagem, 5000);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+        finalizarAguardar();
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Não foi possível realizar o login. Tente novamente.";
+        setTimeout(sumirMensagem, 5000);
+    });
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none";
+}
+
 
 </script>
