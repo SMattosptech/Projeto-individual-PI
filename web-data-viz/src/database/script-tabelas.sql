@@ -1,58 +1,64 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+CREATE DATABASE playguitar;
+USE playguitar;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE objetivo_musical (
+    id_objetivo INT PRIMARY KEY AUTO_INCREMENT,
+    descricao VARCHAR(100) NOT NULL UNIQUE
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE perfil_musical (
+    id_perfil INT PRIMARY KEY AUTO_INCREMENT,
+    fk_usuario INT NOT NULL UNIQUE,
+    toca_guitarra BOOLEAN NOT NULL,
+    tempo_experiencia VARCHAR(30),
+    nivel VARCHAR(20),
+    genero_favorito VARCHAR(60) NOT NULL,
+    guitarra_atual VARCHAR(100),
+    guitarra_desejada VARCHAR(100),
+    fk_objetivo INT NOT NULL,
+    CONSTRAINT chk_nivel
+    CHECK (
+        nivel IN ('Iniciante', 'Intermediário', 'Avançado')
+        OR nivel IS NULL
+    ),
+    CONSTRAINT chk_experiencia
+    CHECK (
+        tempo_experiencia IN (
+            'Menos de 1 ano',
+            '1 a 2 anos',
+            '2 a 5 anos',
+            'Mais de 5 anos'
+        )
+        OR tempo_experiencia IS NULL
+    ),
+
+    CONSTRAINT chk_toca_guitarra
+    CHECK (toca_guitarra IN (0, 1)),
+
+    CONSTRAINT chk_perfil_condicional
+    CHECK (
+        (toca_guitarra = 1
+         AND tempo_experiencia IS NOT NULL
+         AND nivel IS NOT NULL)
+        OR
+        (toca_guitarra = 0
+         AND tempo_experiencia IS NULL
+         AND nivel IS NULL)
+    ),
+
+    CONSTRAINT fk_perfil_usuario
+    FOREIGN KEY (fk_usuario)
+    REFERENCES usuario(id_usuario),
+
+    CONSTRAINT fk_perfil_objetivo
+    FOREIGN KEY (fk_objetivo)
+    REFERENCES objetivo_musical(id_objetivo)
 );
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
