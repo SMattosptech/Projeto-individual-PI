@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,11 +8,12 @@
 
     <title>PlayGuitar | Cadastro</title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/cadastro.css">
@@ -72,7 +72,7 @@
                 <div class="formulario">
                     <div class="campo">
                         <span>Nome:</span>
-                        <input id="nome_input" type="text" placeholder="Seu nome">
+                        <input id="nome_input" type="email" placeholder="Seu nome">
                     </div>
 
                     <div class="campo">
@@ -98,7 +98,7 @@
                 </p>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif" alt="Carregando...">
+                    <img src="../assets/circle-loading.gif" id="loading-gif" alt="Carregando...">
                 </div>
 
                 <div id="div_erros_login"></div>
@@ -113,7 +113,6 @@
 <script>
 
     function cadastrar() {
-        // aguardar();
 
         // Recuperando os valores dos campos
         let nomeVar = nome_input.value;
@@ -146,6 +145,9 @@
             finalizarAguardar();
             return false;
         }
+
+        // Iniciando o carregamento antes de enviar os dados
+        aguardar()
 
         // Enviando os valores para o cadastro
         fetch("/usuarios/cadastrar", {
