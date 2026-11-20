@@ -17,27 +17,25 @@
 
 <body>
 
-    <!-- Cabeçalho (idêntico ao da home) -->
+    <!-- Cabeçalho -->
     <header class="cabecalho">
         <div class="esquerda">
-            <a href="../playguitar.html">
+            <a href="../index.html">
                 <img id="logo" src="../assets/imgs/logo.png" alt="Logo PlayGuitar">
             </a>
             <h1 id="titulo">PlayGuitar</h1>
         </div>
 
         <nav class="navegacao">
-            <a href="login.html" id="login">Login</a>
-            <a href="cadastro.html" id="cadastro">Cadastro</a>
             <a href="../html/contato.html" id="contatos">Contato</a>
         </nav>
     </header>
 
     <!-- Introdução -->
-    <section class="hero">
-        <div class="hero-interno com-imagem">
-            <div class="hero-conteudo">
-                <span class="selo">PERFIL MUSICAL</span>
+    <section class="introducao">
+        <div class="introducao-conteudo">
+            <div class="introducao-texto">
+                <span class="chamada">PERFIL MUSICAL</span>
                 <h1>Conhecendo seu <span class="destaque">perfil musical</span></h1>
                 <p>
                     Conte um pouco sobre você e sua relação com a guitarra.
@@ -47,26 +45,26 @@
                 <span class="tempo-estimado">7 perguntas &middot; leva cerca de 2 minutos</span>
             </div>
 
-            <div class="hero-imagem">
+            <div class="introducao-imagem">
                 <img src="../assets/imgs/maos-guitarra.jpg" alt="Mãos tocando guitarra">
             </div>
         </div>
     </section>
 
-    <main class="perfil">
+    <main class="area-formulario">
 
         <!-- Formulário -->
-        <form id="formPerfil" class="formulario-perfil" novalidate>
+        <form id="formPerfil" class="formulario" novalidate>
 
-            <!-- ===== Grupo 1: experiência ===== -->
-            <div class="grupo">
-                <h2 class="grupo-titulo">Sua experiência</h2>
+            <!-- Seção 1: experiência -->
+            <div class="secao">
+                <h2 class="titulo-secao">Sua experiência</h2>
 
                 <!-- Pergunta 1 -->
                 <div class="pergunta" data-pergunta="toca">
-                    <div class="pergunta-topo">
+                    <div class="topo-pergunta">
                         <span class="numero"></span>
-                        <h3 class="pergunta-titulo" id="titulo-toca">Você toca guitarra?</h3>
+                        <h3 class="titulo-pergunta" id="titulo-toca">Você toca guitarra?</h3>
                         <span class="etiqueta obrigatoria">Obrigatória</span>
                     </div>
 
@@ -87,82 +85,80 @@
 
                 <!-- Perguntas 2 e 3: só aparecem se a resposta da pergunta 1 for "Sim" -->
                 <div class="condicional" id="blocoCondicional" inert aria-hidden="true">
-                    <div class="condicional-interno">
 
-                        <!-- Pergunta 2 -->
-                        <div class="pergunta" data-pergunta="tempo">
-                            <div class="pergunta-topo">
-                                <span class="numero"></span>
-                                <h3 class="pergunta-titulo" id="titulo-tempo">Há quanto tempo você toca guitarra?</h3>
-                                <span class="etiqueta obrigatoria">Obrigatória</span>
-                            </div>
-
-                            <div class="opcoes" role="radiogroup" aria-labelledby="titulo-tempo">
-                                <label class="opcao">
-                                    <input type="radio" name="tempo" value="Menos de 1 ano" disabled>
-                                    <span class="caixa">Menos de 1 ano</span>
-                                </label>
-
-                                <label class="opcao">
-                                    <input type="radio" name="tempo" value="1 a 2 anos" disabled>
-                                    <span class="caixa">De 1 a 2 anos</span>
-                                </label>
-
-                                <label class="opcao">
-                                    <input type="radio" name="tempo" value="2 a 5 anos" disabled>
-                                    <span class="caixa">De 2 a 5 anos</span>
-                                </label>
-
-                                <label class="opcao">
-                                    <input type="radio" name="tempo" value="Mais de 5 anos" disabled>
-                                    <span class="caixa">Mais de 5 anos</span>
-                                </label>
-                            </div>
-
-                            <p class="mensagem-erro" hidden>Informe há quanto tempo você toca guitarra.</p>
+                    <!-- Pergunta 2 -->
+                    <div class="pergunta" data-pergunta="tempo">
+                        <div class="topo-pergunta">
+                            <span class="numero"></span>
+                            <h3 class="titulo-pergunta" id="titulo-tempo">Há quanto tempo você toca guitarra?</h3>
+                            <span class="etiqueta obrigatoria">Obrigatória</span>
                         </div>
 
-                        <!-- Pergunta 3 -->
-                        <div class="pergunta" data-pergunta="nivel">
-                            <div class="pergunta-topo">
-                                <span class="numero"></span>
-                                <h3 class="pergunta-titulo" id="titulo-nivel">Como você classifica seu nível de conhecimento na guitarra?</h3>
-                                <span class="etiqueta obrigatoria">Obrigatória</span>
-                            </div>
+                        <div class="opcoes" role="radiogroup" aria-labelledby="titulo-tempo">
+                            <label class="opcao">
+                                <input type="radio" name="tempo" value="Menos de 1 ano" disabled>
+                                <span class="caixa">Menos de 1 ano</span>
+                            </label>
 
-                            <div class="opcoes tres" role="radiogroup" aria-labelledby="titulo-nivel">
-                                <label class="opcao">
-                                    <input type="radio" name="nivel" value="Iniciante" disabled>
-                                    <span class="caixa">Iniciante</span>
-                                </label>
+                            <label class="opcao">
+                                <input type="radio" name="tempo" value="1 a 2 anos" disabled>
+                                <span class="caixa">De 1 a 2 anos</span>
+                            </label>
 
-                                <label class="opcao">
-                                    <input type="radio" name="nivel" value="Intermediário" disabled>
-                                    <span class="caixa">Intermediário</span>
-                                </label>
+                            <label class="opcao">
+                                <input type="radio" name="tempo" value="2 a 5 anos" disabled>
+                                <span class="caixa">De 2 a 5 anos</span>
+                            </label>
 
-                                <label class="opcao">
-                                    <input type="radio" name="nivel" value="Avançado" disabled>
-                                    <span class="caixa">Avançado</span>
-                                </label>
-                            </div>
-
-                            <p class="mensagem-erro" hidden>Escolha o seu nível de conhecimento.</p>
+                            <label class="opcao">
+                                <input type="radio" name="tempo" value="Mais de 5 anos" disabled>
+                                <span class="caixa">Mais de 5 anos</span>
+                            </label>
                         </div>
 
+                        <p class="mensagem-erro" hidden>Informe há quanto tempo você toca guitarra.</p>
                     </div>
+
+                    <!-- Pergunta 3 -->
+                    <div class="pergunta" data-pergunta="nivel">
+                        <div class="topo-pergunta">
+                            <span class="numero"></span>
+                            <h3 class="titulo-pergunta" id="titulo-nivel">Como você classifica seu nível de conhecimento na guitarra?</h3>
+                            <span class="etiqueta obrigatoria">Obrigatória</span>
+                        </div>
+
+                        <div class="opcoes tres-colunas" role="radiogroup" aria-labelledby="titulo-nivel">
+                            <label class="opcao">
+                                <input type="radio" name="nivel" value="Iniciante" disabled>
+                                <span class="caixa">Iniciante</span>
+                            </label>
+
+                            <label class="opcao">
+                                <input type="radio" name="nivel" value="Intermediário" disabled>
+                                <span class="caixa">Intermediário</span>
+                            </label>
+
+                            <label class="opcao">
+                                <input type="radio" name="nivel" value="Avançado" disabled>
+                                <span class="caixa">Avançado</span>
+                            </label>
+                        </div>
+
+                        <p class="mensagem-erro" hidden>Escolha o seu nível de conhecimento.</p>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- ===== Grupo 2: gosto e objetivos ===== -->
-            <div class="grupo">
-                <h2 class="grupo-titulo">Seu gosto e seus objetivos</h2>
+            <!-- Seção 2: gosto e objetivos -->
+            <div class="secao">
+                <h2 class="titulo-secao">Seu gosto e seus objetivos</h2>
 
                 <!-- Pergunta 4 -->
                 <div class="pergunta" data-pergunta="genero">
-                    <div class="pergunta-topo">
+                    <div class="topo-pergunta">
                         <span class="numero"></span>
-                        <h3 class="pergunta-titulo" id="titulo-genero">Qual é seu gênero musical favorito?</h3>
+                        <h3 class="titulo-pergunta" id="titulo-genero">Qual é seu gênero musical favorito?</h3>
                         <span class="etiqueta obrigatoria">Obrigatória</span>
                     </div>
 
@@ -177,52 +173,31 @@
 
                 <!-- Pergunta 5 -->
                 <div class="pergunta" data-pergunta="objetivo">
-                    <div class="pergunta-topo">
+                    <div class="topo-pergunta">
                         <span class="numero"></span>
-                        <h3 class="pergunta-titulo" id="titulo-objetivo">O que você mais deseja desenvolver na guitarra?</h3>
+                        <h3 class="titulo-pergunta" id="titulo-objetivo">O que você mais deseja desenvolver na guitarra?</h3>
                         <span class="etiqueta obrigatoria">Obrigatória</span>
                     </div>
 
-                    <div class="opcoes chips" role="radiogroup" aria-labelledby="titulo-objetivo">
-                        <label class="opcao">
-                            <input type="radio" name="objetivo" value="Aprender improvisação">
-                            <span class="caixa">Aprender improvisação</span>
-                        </label>
-
-                        <label class="opcao">
-                            <input type="radio" name="objetivo" value="Desenvolver velocidade">
-                            <span class="caixa">Desenvolver velocidade</span>
-                        </label>
-
-                        <label class="opcao">
-                            <input type="radio" name="objetivo" value="Aprender teoria musical">
-                            <span class="caixa">Aprender teoria musical</span>
-                        </label>
-
-                        <label class="opcao">
-                            <input type="radio" name="objetivo" value="Aprender novas músicas">
-                            <span class="caixa">Aprender novas músicas</span>
-                        </label>
-
-                        <label class="opcao">
-                            <input type="radio" name="objetivo" value="Desenvolver acordes e ritmo">
-                            <span class="caixa">Desenvolver acordes e ritmo</span>
-                        </label>
+                    <div class="campo-texto">
+                        <input type="text" name="objetivo" maxlength="60" autocomplete="off"
+                            aria-labelledby="titulo-objetivo"
+                            placeholder="Escreva uma só coisa. Exemplo: Improvisação.">
                     </div>
 
-                    <p class="mensagem-erro" hidden>Escolha o que você mais deseja desenvolver.</p>
+                    <p class="mensagem-erro" hidden>Informe o que você mais deseja desenvolver.</p>
                 </div>
             </div>
 
-            <!-- ===== Grupo 3: equipamento ===== -->
-            <div class="grupo">
-                <h2 class="grupo-titulo">Sua guitarra</h2>
+            <!-- Seção 3: equipamento -->
+            <div class="secao">
+                <h2 class="titulo-secao">Sua guitarra</h2>
 
                 <!-- Pergunta 6 -->
                 <div class="pergunta" data-pergunta="atual">
-                    <div class="pergunta-topo">
+                    <div class="topo-pergunta">
                         <span class="numero"></span>
-                        <h3 class="pergunta-titulo" id="titulo-atual">Qual guitarra você possui atualmente?</h3>
+                        <h3 class="titulo-pergunta" id="titulo-atual">Qual guitarra você possui atualmente?</h3>
                         <span class="etiqueta opcional">Opcional</span>
                     </div>
 
@@ -235,9 +210,9 @@
 
                 <!-- Pergunta 7 -->
                 <div class="pergunta" data-pergunta="desejada">
-                    <div class="pergunta-topo">
+                    <div class="topo-pergunta">
                         <span class="numero"></span>
-                        <h3 class="pergunta-titulo" id="titulo-desejada">Qual guitarra você gostaria de ter?</h3>
+                        <h3 class="titulo-pergunta" id="titulo-desejada">Qual guitarra você gostaria de ter?</h3>
                         <span class="etiqueta opcional">Opcional</span>
                     </div>
 
@@ -250,21 +225,19 @@
             </div>
 
             <!-- Envio -->
-            <div class="acoes">
+            <div class="area-botao">
                 <button type="submit" class="botao" id="botaoEnviar">
                     <span id="textoBotao">Enviar respostas</span>
                 </button>
 
                 <p class="mensagem-erro" id="erroEnvio" hidden>Não foi possível enviar agora. Tente novamente.</p>
-
-                <p class="nota">Só as perguntas marcadas como obrigatórias precisam ser respondidas.</p>
             </div>
 
         </form>
 
         <!-- Mensagem de confirmação (aparece depois do envio) -->
         <div class="confirmacao" id="confirmacao" hidden>
-            <div class="check" aria-hidden="true">
+            <div class="icone-confirmacao" aria-hidden="true">
                 <svg viewBox="0 0 52 52" width="38" height="38">
                     <path d="M14 27 L23 36 L39 17" fill="none" stroke="#2A1216" stroke-width="5"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -278,20 +251,25 @@
                 Suas respostas vão ajudar o PlayGuitar a conhecer melhor você.
             </p>
 
-            <div class="confirmacao-botoes">
-                <a href="../playguitar.html" class="botao botao-link">Voltar para a home</a>
+            <div class="botoes-confirmacao">
+                <a href="../playguitar.html" class="botao">Voltar para a home</a>
                 <button type="button" class="botao-secundario" id="preencherNovamente">Preencher novamente</button>
             </div>
         </div>
 
     </main>
 
-    <!-- Rodapé (idêntico ao da home) -->
+    <!-- Rodapé -->
     <footer class="rodape">
-        <p>© 2026 PlayGuitar. Todos os direitos reservados.</p>
+        <div class="container-rodape">
+            <p>© 2026 PlayGuitar. Todos os direitos reservados.</p>
+            <p>
+                Pinterest utilizado como plataforma de referência para imagens.
+            </p>
+        </div>
     </footer>
 
-    <script src="../js/perfil-musical.js"></script>
+    <script src="../js/formulario.js"></script>
 
 </body>
 
