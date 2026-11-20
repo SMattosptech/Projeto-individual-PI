@@ -1,10 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #FCF9F5;
+    overflow-x: hidden;
+}
+
 
 /* =========================================
-   CADASTRO: ajustes sobre o login.css
-   (carregue este arquivo DEPOIS do login.css)
+   FOTO E ATMOSFERA (à direita no desktop)
 ========================================= */
 
-/* Menu: marca Cadastro como página atual */
+.imagem-fundo-login {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 35% center;
+    z-index: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to top,
+            rgba(26, 18, 22, 0.95) 0%,
+            rgba(26, 18, 22, 0.55) 50%,
+            rgba(26, 18, 22, 0.2) 100%);
+    z-index: 1;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+    position: relative;
+    z-index: 3;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Remove a aparência de link do título PlayGuitar */
+.esquerda a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+    transform: scale(1.05);
+}
 
 #login {
     color: #F5EEE5;
@@ -14,69 +123,282 @@
     color: #D4822E;
 }
 
-#cadastro {
-    color: #D4822E;
+
+/* =========================================
+   ÁREA PRINCIPAL (formulário à esquerda, foto à direita)
+========================================= */
+
+.login {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    z-index: 2;
 }
 
-/* Remove a aparência de link do título PlayGuitar */
 
-.esquerda a {
-    text-decoration: none;
-    color: inherit;
+/* Painel de textos sobre a foto (direita) */
+
+.painel-boas-vindas {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    padding: 0 60px 60px;
+    max-width: 560px;
+    z-index: 2;
 }
 
-/* Ajustes do formulário */
-
-.formulario {
-    gap: 11px;
+.selo-wrapper {
+    display: inline-block;
+    padding: 4px 0;
+    border-bottom: 2px solid #D4822E;
+    margin-bottom: 16px;
 }
 
-.formulario .campo input {
-    padding: 11px 14px;
+.selo {
+    color: #F5EEE5;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.painel-boas-vindas h2 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+}
+
+.painel-boas-vindas p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0;
+    color: #E8D8C8;
+}
+
+
+/* Painel do formulário (esquerda) */
+
+.login .container {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 40px;
+    background-color: #FCF9F5;
+}
+
+.card-login {
+    width: 100%;
+    max-width: 390px;
 }
 
 .card-header-text {
     margin-bottom: 18px;
 }
 
-.login .container {
-    padding: 28px 40px;
+.card-login h2 {
+    color: #2A1216;
+    font-size: 30px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
 }
 
+.sub-aviso {
+    color: #7A6A6D;
+    font-size: 14px;
+    margin: 0;
+}
+
+
 /* =========================================
-   LAYOUT ESPELHADO: foto à direita,
-   formulário à esquerda
-   (só em telas grandes; no celular fica igual ao login)
+   CAMPOS DO FORMULÁRIO
 ========================================= */
 
-@media (min-width: 961px) {
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
 
-    .imagem-fundo-login {
-        left: auto;
-        right: 0;
-        object-position: 35% center;
-    }
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
 
-    body::before {
-        left: auto;
-        right: 0;
-    }
+.campo span {
+    color: #2A1216;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
 
-    .login .container {
-        grid-column: 1;
-        grid-row: 1;
-    }
+.campo input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #E2D9CE;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #2A1216;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
 
-    .painel-boas-vindas {
-        grid-column: 2;
-        grid-row: 1;
-    }
+.campo input::placeholder {
+    color: #B5AFA6;
+}
 
-    /* O aviso aparece no topo da metade esquerda */
+.campo input:focus {
+    border-color: #D4822E;
+    box-shadow: 0 0 0 4px rgba(212, 130, 46, 0.12);
+}
 
-    .alerta_erro {
-        right: auto;
-        left: 0;
-    }
 
+/* =========================================
+   REQUISITOS DA SENHA (aparecem um por um)
+========================================= */
+
+.requisitos-senha {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: -4px;
+}
+
+.requisitos-senha p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.requisitos-senha p.pendente {
+    color: #B91C1C;
+}
+
+.requisitos-senha p.cumprido {
+    color: #2E7D32;
+}
+
+
+/* =========================================
+   BOTÃO CADASTRAR E LINK DE LOGIN
+========================================= */
+
+.botao {
+    width: 100%;
+    padding: 14px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 10px;
+    background-color: #D4822E;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(212, 130, 46, 0.25);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.botao:hover {
+    background-color: #B86B1E;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(212, 130, 46, 0.35);
+}
+
+.link-cadastro {
+    margin: 26px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid #EAE2D7;
+    font-size: 13px;
+    color: #7A6A6D;
+}
+
+.link-cadastro a {
+    color: #2A1216;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid #D4822E;
+    padding-bottom: 1px;
+    transition: color 0.2s ease;
+}
+
+.link-cadastro a:hover {
+    color: #D4822E;
+}
+
+
+/* =========================================
+   MENSAGENS E CARREGAMENTO
+========================================= */
+
+/* O aviso aparece no topo da metade esquerda */
+.alerta_erro {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 50%;
+    padding: 0 40px;
+    z-index: 4;
+}
+
+.card_erro {
+    display: none;
+    max-width: 390px;
+    margin: 0 auto;
+    background-color: #FEF2F2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+    border-left: 4px solid #DC2626;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.loading-div {
+    display: none;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+#loading-gif {
+    width: 38px;
+    height: 38px;
+}
+
+#div_erros_login {
+    color: #DC2626;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.esquerda {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#logo {
+    height: 75px;
+}
+
+.navegacao {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+.login .container {
+    padding: 30px 20px;
 }

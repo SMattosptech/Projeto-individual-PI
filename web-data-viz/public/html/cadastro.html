@@ -15,16 +15,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/cadastro.css">
 </head>
 
 <body>
 
-    <!-- Para usar outra foto no cadastro, troque o nome do arquivo abaixo -->
     <img class="imagem-fundo-login" src="../assets/imgs/img-fundo-login.jpg" alt="Guitarra PlayGuitar">
 
-    <!-- Cabeçalho (Idêntico ao da home) -->
+    <!-- Cabeçalho -->
     <header class="cabecalho">
         <div class="esquerda">
             <a href="../playguitar.html">
@@ -72,7 +70,7 @@
                 <div class="formulario">
                     <div class="campo">
                         <span>Nome:</span>
-                        <input id="nome_input" type="email" placeholder="Seu nome">
+                        <input id="nome_input" type="text" placeholder="Seu nome">
                     </div>
 
                     <div class="campo">
@@ -82,7 +80,15 @@
 
                     <div class="campo">
                         <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
+                        <input id="senha_input" type="password" placeholder="******" onkeyup="validarSenha()">
+                    </div>
+
+                    <div class="requisitos-senha" id="requisitos" style="display: none;">
+                        <p id="tamanho"></p>
+                        <p id="maiuscula"></p>
+                        <p id="minuscula"></p>
+                        <p id="numero"></p>
+                        <p id="especial"></p>
                     </div>
 
                     <div class="campo">
@@ -108,9 +114,81 @@
 
 </body>
 
-</html>
-
 <script>
+
+    function validarSenha() {
+        let senha = senha_input.value;
+
+        let temTamanho = senha.length >= 8;
+        let temMaiuscula = false;
+        let temMinuscula = false;
+        let temNumero = false;
+        let temEspecial = false;
+
+        for (let i = 0; i < senha.length; i++) {
+            let caractere = senha[i];
+
+            if (caractere >= "A" && caractere <= "Z") {
+                temMaiuscula = true;
+            } else if (caractere >= "a" && caractere <= "z") {
+                temMinuscula = true;
+            } else if (caractere >= "0" && caractere <= "9") {
+                temNumero = true;
+            } else if (caractere != " ") {
+                temEspecial = true;
+            }
+        }
+
+        if (temTamanho) {
+            tamanho.innerHTML = "✔ Mínimo de 8 caracteres";
+            tamanho.className = "cumprido";
+        } else {
+            tamanho.innerHTML = "✖ Mínimo de 8 caracteres";
+            tamanho.className = "pendente";
+        }
+
+        if (temMaiuscula) {
+            maiuscula.innerHTML = "✔ Pelo menos uma letra maiúscula";
+            maiuscula.className = "cumprido";
+        } else {
+            maiuscula.innerHTML = "✖ Pelo menos uma letra maiúscula";
+            maiuscula.className = "pendente";
+        }
+
+        if (temMinuscula) {
+            minuscula.innerHTML = "✔ Pelo menos uma letra minúscula";
+            minuscula.className = "cumprido";
+        } else {
+            minuscula.innerHTML = "✖ Pelo menos uma letra minúscula";
+            minuscula.className = "pendente";
+        }
+
+        if (temNumero) {
+            numero.innerHTML = "✔ Pelo menos um número";
+            numero.className = "cumprido";
+        } else {
+            numero.innerHTML = "✖ Pelo menos um número";
+            numero.className = "pendente";
+        }
+
+        if (temEspecial) {
+            especial.innerHTML = "✔ Pelo menos um caractere especial";
+            especial.className = "cumprido";
+        } else {
+            especial.innerHTML = "✖ Pelo menos um caractere especial";
+            especial.className = "pendente";
+        }
+
+        if (senha.length > 0) {
+            requisitos.style.display = "flex";
+        } else {
+            requisitos.style.display = "none";
+        }
+
+        // Retorna se todos os requisitos da senha foram atendidos (true ou false)
+        return temTamanho && temMaiuscula && temMinuscula && temNumero && temEspecial;
+    }
+
 
     function cadastrar() {
 
@@ -131,10 +209,20 @@
             mensagem_erro.innerHTML =
                 "(Mensagem de erro para todos os campos em branco)";
 
+            setTimeout(sumirMensagem, 5000);
             finalizarAguardar();
             return false;
-        } else {
-            setInterval(sumirMensagem, 5000);
+        }
+
+        // Verificando se a senha atende a todos os requisitos
+        if (!validarSenha()) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "A senha não atende a todos os requisitos.";
+
+            setTimeout(sumirMensagem, 5000);
+            finalizarAguardar();
+            return false;
         }
 
         // Verificando se as senhas são iguais
@@ -142,6 +230,7 @@
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "As senhas não coincidem.";
 
+            setTimeout(sumirMensagem, 5000);
             finalizarAguardar();
             return false;
         }
@@ -193,3 +282,5 @@
     }
 
 </script>
+
+</html>
