@@ -70,12 +70,12 @@
 
                     <div class="opcoes" role="radiogroup" aria-labelledby="titulo-toca">
                         <label class="opcao">
-                            <input type="radio" name="toca" value="sim">
+                            <input type="radio" name="toca" value="sim" id="tocaSim">
                             <span class="caixa">Sim</span>
                         </label>
 
                         <label class="opcao">
-                            <input type="radio" name="toca" value="nao">
+                            <input type="radio" name="toca" value="nao" id="tocaNao">
                             <span class="caixa">Não, mas tenho interesse em aprender</span>
                         </label>
                     </div>
@@ -84,7 +84,7 @@
                 </div>
 
                 <!-- Perguntas 2 e 3: só aparecem se a resposta da pergunta 1 for "Sim" -->
-                <div class="condicional" id="blocoCondicional" inert aria-hidden="true">
+                <div class="condicional" id="blocoCondicional">
 
                     <!-- Pergunta 2 -->
                     <div class="pergunta" data-pergunta="tempo">
@@ -252,7 +252,7 @@
             </p>
 
             <div class="botoes-confirmacao">
-                <a href="../playguitar.html" class="botao">Voltar para a home</a>
+                <a href="../index.html" class="botao">Voltar para a home</a>
                 <button type="button" class="botao-secundario" id="preencherNovamente">Preencher novamente</button>
             </div>
         </div>
