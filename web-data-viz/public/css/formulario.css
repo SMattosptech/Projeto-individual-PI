@@ -92,11 +92,11 @@ body {
 .hero {
     padding: 64px 24px 80px;
     background:
-        radial-gradient(circle at 88% 15%, rgba(212, 130, 46, 0.30), transparent 45%),
-        radial-gradient(circle at 8% 95%, rgba(242, 194, 48, 0.14), transparent 40%),
-        #2A1216;
+        radial-gradient(circle at 80% 25%, rgba(226, 152, 38, 0.32) 0%, rgba(122, 53, 20, 0.25) 38%, transparent 70%),
+        linear-gradient(145deg, #2B130A 0%, #1A0B06 55%, #0F0604 100%);
     text-align: center;
 }
+
 
 .hero-interno {
     max-width: 1000px;

@@ -1,0 +1,462 @@
+/* configurações gerais */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5EEE5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.link-titulo {
+    text-decoration: none;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+}
+
+#quem_somos, #contatos, #login, #cadastro {
+    transition: transform 0.3s ease;
+}
+
+#quem_somos:hover, #contatos:hover, #login:hover, #cadastro:hover {
+    transform: scale(1.05);
+}
+
+/* história da guitarra */
+.comoSurgiu {
+    background-color: #F5EEE5;
+    padding: 65px 10%;
+}
+
+.historia-guitarra {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 35px 25px;
+}
+
+.imagem-historia {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-historia img {
+    width: 100%;
+    height: 550px;
+    object-fit: contain;
+    background-color: #1A060B;
+    border-radius: 10px;
+}
+
+.texto-historia {
+    width: 50%;
+    text-align: left;
+}
+
+.texto-historia span {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.texto-historia h2 {
+    color: #2A1216;
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.texto-historia p {
+    color: #542A3D;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.texto-historia p .destaque {
+    color: #94242C;
+    font-weight: bold;
+}
+
+.base-historia {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 10px auto 0;
+    padding: 30px 35px 10px;
+    border-top: 1px solid #D8C4B1;
+}
+
+.citacao-historia {
+    width: 50%;
+    margin: 0;
+    padding: 16px 20px;
+    background-color: #FFF9F1;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+    color: #2A1216;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+}
+
+.linha-tempo {
+    width: 50%;
+    display: flex;
+    gap: 15px;
+}
+
+.marco {
+    flex: 1;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 3px solid #D4822E;
+    border-radius: 8px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.marco strong {
+    display: block;
+    color: #94242C;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.marco p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    color: #542A3D;
+}
+
+/* melhores guitarristas e carrossel */
+.melhoresGuitarristas {
+    background-color: #2A1216;
+    color: #F5EEE5;
+    padding: 60px 0;
+}
+
+#titulo2 {
+    text-align: center;
+    color: #D4822E;
+    font-size: 32px;
+    margin: 0 0 30px;
+    padding: 20px;
+}
+
+.carrossel-guitarristas {
+    padding: 15px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.container-galeria {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.container-galeria::-webkit-scrollbar {
+    display: none;
+}
+
+.galeria {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+#div_exibir {
+    display: contents;
+}
+
+.guitarrista {
+    width: 380px;
+    flex-shrink: 0;
+    text-align: center;
+    color: #F5EEE5;
+    background-color: #1A060B;
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid #542A3D;
+    box-shadow: 0 6px 15px rgba(26, 6, 11, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.guitarrista h3, .guitarrista span {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #F5EEE5;
+}
+
+.item {
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    border: 3px solid #542A3D;
+    opacity: 0.6;
+    transition: all 600ms ease-in-out;
+}
+
+.item-ativo {
+    opacity: 1;
+    border-color: #D4822E;
+    box-shadow: 0 0 15px rgba(212, 130, 46, 0.3);
+}
+
+.curiosidade-guitarrista {
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #F1E6D2;
+    background: linear-gradient(135deg, #3A3328, #2E2A23);
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #4F4534;
+    border-left: 4px solid #F2C230;
+    text-align: left;
+    line-height: 1.5;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(242, 194, 48, 0.15);
+}
+
+/* músicas mais fáceis */
+.musicasFaceis {
+    overflow-x: hidden;
+    background-color: #F5EEE5;
+    padding: 70px 5% 80px;
+    text-align: center;
+}
+
+.chamada {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #F2C230;
+    padding-bottom: 4px;
+}
+
+#titulo3 {
+    color: #2A1216;
+    font-size: 32px;
+    margin: 20px 0 10px;
+}
+
+.subtitulo-secao {
+    color: #542A3D;
+    margin: 0 0 45px;
+}
+
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card-musica {
+    position: relative;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #F2C230;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-musica:hover {
+    z-index: 5;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 22px rgba(42, 18, 22, 0.25);
+}
+
+.capa {
+    position: relative;
+    width: 76%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 18px;
+    transform: perspective(800px) rotateY(0deg);
+    transition: transform 0.7s ease;
+}
+
+.album {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #1A060B;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: box-shadow 0.7s ease;
+}
+
+.disco {
+    position: absolute;
+    z-index: 1;
+    top: 4%;
+    left: 4%;
+    width: 92%;
+    height: 92%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #D4822E 0%, #D4822E 16%, #1A060B 17%, #2E2A23 100%);
+    transition: transform 0.7s ease;
+}
+
+.card-musica:hover .capa {
+    transform: perspective(800px) rotateY(-12deg);
+}
+
+.card-musica:hover .disco {
+    transform: translateX(35%) rotate(180deg);
+}
+
+.card-musica h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #2A1216;
+}
+
+.card-musica p {
+    margin: 0;
+    font-size: 14px;
+    color: #542A3D;
+}
+
+/* grade de músicas (outras páginas) */
+.grade-musicas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.musica {
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 10px;
+    width: 200px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.12);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-musica {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.musica:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(42, 18, 22, 0.2);
+    cursor: pointer;
+}
+
+.musica h4 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #2A1216;
+}
+
+.musica p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #542A3D;
+}
+
+.tocadas {
+    font-weight: bold;
+    color: #94242C;
+    margin-top: 8px;
+}
+
+/* rodapé */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+    margin-top: auto;
+}

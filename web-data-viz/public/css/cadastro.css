@@ -1,9 +1,9 @@
+
 * {
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
@@ -18,10 +18,7 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =========================================
-   FOTO E ATMOSFERA (à direita no desktop)
-========================================= */
+/* foto de fundo */
 
 .imagem-fundo-login {
     position: fixed;
@@ -41,17 +38,11 @@ body::before {
     right: 0;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to top,
-            rgba(26, 18, 22, 0.95) 0%,
-            rgba(26, 18, 22, 0.55) 50%,
-            rgba(26, 18, 22, 0.2) 100%);
+    background: linear-gradient(to top, rgba(26, 18, 22, 0.95), rgba(26, 18, 22, 0.55), rgba(26, 18, 22, 0.2));
     z-index: 1;
 }
 
-
-/* =========================================
-   CABEÇALHO
-========================================= */
+/* cabeçalho */
 
 .cabecalho {
     display: flex;
@@ -70,7 +61,6 @@ body::before {
     gap: 20px;
 }
 
-/* Remove a aparência de link do título PlayGuitar */
 .esquerda a {
     text-decoration: none;
     color: inherit;
@@ -123,10 +113,7 @@ body::before {
     color: #D4822E;
 }
 
-
-/* =========================================
-   ÁREA PRINCIPAL (formulário à esquerda, foto à direita)
-========================================= */
+/* área principal */
 
 .login {
     flex: 1;
@@ -136,8 +123,7 @@ body::before {
     z-index: 2;
 }
 
-
-/* Painel de textos sobre a foto (direita) */
+/* textos da direita */
 
 .painel-boas-vindas {
     grid-column: 2;
@@ -178,8 +164,7 @@ body::before {
     color: #E8D8C8;
 }
 
-
-/* Painel do formulário (esquerda) */
+/* formulário da esquerda */
 
 .login .container {
     grid-column: 1;
@@ -214,10 +199,7 @@ body::before {
     margin: 0;
 }
 
-
-/* =========================================
-   CAMPOS DO FORMULÁRIO
-========================================= */
+/* campos do formulário */
 
 .formulario {
     display: flex;
@@ -260,10 +242,7 @@ body::before {
     box-shadow: 0 0 0 4px rgba(212, 130, 46, 0.12);
 }
 
-
-/* =========================================
-   REQUISITOS DA SENHA (aparecem um por um)
-========================================= */
+/* requisitos da senha */
 
 .requisitos-senha {
     display: none;
@@ -287,10 +266,7 @@ body::before {
     color: #2E7D32;
 }
 
-
-/* =========================================
-   BOTÃO CADASTRAR E LINK DE LOGIN
-========================================= */
+/* botão e link */
 
 .botao {
     width: 100%;
@@ -335,12 +311,8 @@ body::before {
     color: #D4822E;
 }
 
+/* mensagens e carregamento */
 
-/* =========================================
-   MENSAGENS E CARREGAMENTO
-========================================= */
-
-/* O aviso aparece no topo da metade esquerda */
 .alerta_erro {
     position: absolute;
     top: 24px;
@@ -381,24 +353,4 @@ body::before {
     font-size: 13px;
     font-weight: 600;
     margin-top: 10px;
-}
-
-.esquerda {
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#logo {
-    height: 75px;
-}
-
-.navegacao {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding-bottom: 10px;
-}
-
-.login .container {
-    padding: 30px 20px;
 }
