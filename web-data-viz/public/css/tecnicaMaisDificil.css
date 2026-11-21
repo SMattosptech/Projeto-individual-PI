@@ -1,0 +1,630 @@
+
+/* configurações gerais */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5EEE5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+    transform: scale(1.05);
+}
+
+/* elementos compartilhados */
+.chamada {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.chamada-vinho {
+    color: #D4822E;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    max-width: 750px;
+    margin: 0 auto 40px;
+    color: #542A3D;
+    text-align: center;
+}
+
+/* apresentação */
+.introducao {
+    padding: 65px 10%;
+    background-color: #F5EEE5;
+}
+
+.conteudo-introducao {
+    max-width: 1100px;
+    margin: 0 auto 35px;
+}
+
+.conteudo-introducao h2 {
+    margin: 15px 0 5px;
+    color: #2A1216;
+    font-size: 46px;
+}
+
+.conteudo-introducao h3 {
+    margin: 0 0 20px;
+    color: #94242C;
+    font-size: 21px;
+}
+
+.conteudo-introducao p {
+    max-width: 950px;
+    color: #542A3D;
+    font-size: 16px;
+}
+
+.imagem-principal {
+    max-width: 1100px;
+    height: 420px;
+    margin: 0 auto;
+}
+
+.imagem-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    background-color: #1A060B;
+    box-shadow: 0 5px 15px rgba(42, 18, 22, 0.2);
+}
+
+.resumo-tecnica {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 25px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 10px;
+}
+
+.resumo-tecnica div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    text-align: center;
+}
+
+.resumo-tecnica strong {
+    color: #94242C;
+    font-size: 17px;
+}
+
+.resumo-tecnica span {
+    color: #542A3D;
+    font-size: 14px;
+}
+
+/* funcionamento da técnica */
+.funcionamento {
+    padding: 70px 10%;
+    background-color: #2A1216;
+    color: #F5EEE5;
+}
+
+.container-funcionamento {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container-funcionamento h2 {
+    margin: 15px 0 25px;
+    color: #D4822E;
+    font-size: 32px;
+}
+
+.container-funcionamento > p {
+    color: #F1E6D2;
+    font-size: 16px;
+}
+
+.caixa-destaque {
+    margin: 35px 0;
+    padding: 22px 25px;
+    background-color: #3A2026;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.caixa-destaque h3 {
+    margin-top: 0;
+    color: #D4822E;
+}
+
+.caixa-destaque p {
+    margin-bottom: 0;
+    color: #F5EEE5;
+}
+
+.explicacao-imagem {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.explicacao-imagem img {
+    width: 45%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.explicacao-imagem div {
+    flex: 1;
+}
+
+.explicacao-imagem h3 {
+    color: #D4822E;
+    font-size: 23px;
+}
+
+.explicacao-imagem p {
+    color: #F1E6D2;
+}
+
+/* arpejos e aplicações */
+.arpejos {
+    padding: 70px 10%;
+    background-color: #F5EEE5;
+}
+
+.container-arpejos {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-arpejos h2 {
+    margin: 15px 0;
+    color: #2A1216;
+    font-size: 32px;
+}
+
+.grade-conceitos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+    text-align: left;
+}
+
+.card-conceito {
+    padding: 25px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #D4822E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card-conceito:hover {
+    transform: translateY(-6px);
+}
+
+.numero {
+    color: #94242C;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-conceito h3 {
+    color: #2A1216;
+    font-size: 20px;
+}
+
+.card-conceito p {
+    color: #542A3D;
+    font-size: 14px;
+}
+
+.aplicacao-musical {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.aplicacao-musical img {
+    width: 45%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.aplicacao-musical div {
+    flex: 1;
+}
+
+.aplicacao-musical h3 {
+    color: #94242C;
+    font-size: 23px;
+}
+
+.aplicacao-musical p {
+    color: #542A3D;
+}
+
+/* dificuldade e treinamento */
+.dificuldade {
+    padding: 70px 10%;
+    background-color: #2A1216;
+}
+
+.container-dificuldade {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.container-dificuldade h2 {
+    margin: 15px 0;
+    color: #D4822E;
+    font-size: 32px;
+}
+
+.container-dificuldade > p {
+    color: #F1E6D2;
+}
+
+.lista-desafios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.desafio {
+    display: flex;
+    gap: 18px;
+    padding: 22px;
+    background-color: #3A2026;
+    border: 1px solid #542A3D;
+    border-radius: 10px;
+}
+
+.desafio > span {
+    color: #D4822E;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.desafio h3 {
+    margin: 0 0 8px;
+    color: #F5EEE5;
+    font-size: 18px;
+}
+
+.desafio p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 14px;
+}
+
+.treinamento {
+    margin-top: 35px;
+    padding: 30px;
+    background-color: #F5EEE5;
+    border-radius: 10px;
+}
+
+.treinamento h3 {
+    margin-top: 0;
+    color: #94242C;
+    font-size: 23px;
+}
+
+.treinamento p,
+.treinamento li {
+    color: #542A3D;
+    line-height: 1.8;
+}
+
+.treinamento ol {
+    padding-left: 22px;
+}
+
+/* sweep picking e tapping */
+.sweep-tapping {
+    padding: 70px 10%;
+    background-color: #F5EEE5;
+}
+
+.container-tapping {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container-tapping > h2 {
+    margin: 15px 0 35px;
+    color: #2A1216;
+    font-size: 32px;
+}
+
+.conteudo-tapping {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.imagem-tapping {
+    width: 48%;
+}
+
+.imagem-tapping img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.texto-tapping {
+    flex: 1;
+}
+
+.texto-tapping h3 {
+    color: #94242C;
+    font-size: 23px;
+}
+
+.texto-tapping p {
+    color: #542A3D;
+}
+
+.frase-final {
+    margin-top: 35px;
+    padding: 20px 25px;
+    background-color: #FFF9F1;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.frase-final p {
+    margin: 0;
+    color: #2A1216;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* guitarristas de referência */
+.referencias {
+    padding: 70px 8%;
+    background-color: #2A1216;
+    text-align: center;
+}
+
+.referencias h2 {
+    margin: 15px 0;
+    color: #D4822E;
+    font-size: 32px;
+}
+
+.subtitulo-referencias {
+    margin-bottom: 40px;
+    color: #F1E6D2;
+}
+
+.grade-guitarristas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.card-guitarrista {
+    overflow: hidden;
+    background-color: #1A060B;
+    border: 1px solid #542A3D;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.card-guitarrista:hover {
+    transform: translateY(-7px);
+}
+
+.card-guitarrista img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.informacao-guitarrista {
+    padding: 22px;
+}
+
+.informacao-guitarrista span {
+    color: #D4822E;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.informacao-guitarrista h3 {
+    color: #F5EEE5;
+    font-size: 21px;
+}
+
+.informacao-guitarrista p {
+    color: #F1E6D2;
+    font-size: 14px;
+}
+
+/* rodapé */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+    margin-top: auto;
+}
+
+/* responsividade */
+@media (max-width: 850px) {
+
+    .cabecalho {
+        flex-direction: column;
+        padding: 10px 20px 20px;
+        gap: 10px;
+    }
+
+    .navegacao {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .introducao,
+    .funcionamento,
+    .arpejos,
+    .dificuldade,
+    .sweep-tapping,
+    .referencias {
+        padding: 50px 6%;
+    }
+
+    .imagem-principal {
+        height: 320px;
+    }
+
+    .grade-conceitos,
+    .grade-guitarristas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lista-desafios {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .conteudo-introducao h2 {
+        font-size: 36px;
+    }
+
+    .imagem-principal {
+        height: 240px;
+    }
+
+    .resumo-tecnica {
+        flex-direction: column;
+    }
+
+    .explicacao-imagem,
+    .aplicacao-musical,
+    .conteudo-tapping {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .explicacao-imagem img,
+    .aplicacao-musical img,
+    .imagem-tapping {
+        width: 100%;
+        height: 250px;
+    }
+
+    .grade-conceitos,
+    .grade-guitarristas {
+        grid-template-columns: 1fr;
+    }
+
+    .card-guitarrista img {
+        height: 300px;
+    }
+
+    .container-funcionamento h2,
+    .container-arpejos h2,
+    .container-dificuldade h2,
+    .container-tapping > h2,
+    .referencias h2 {
+        font-size: 27px;
+    }
+}

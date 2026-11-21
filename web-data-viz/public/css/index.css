@@ -1,5 +1,7 @@
 /* configurações gerais */
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -345,6 +347,7 @@ body {
     box-shadow: 0 12px 22px rgba(42, 18, 22, 0.25);
 }
 
+/* capas e discos - animação 3D */
 .capa {
     position: relative;
     width: 76%;
@@ -375,16 +378,25 @@ body {
     width: 92%;
     height: 92%;
     border-radius: 50%;
-    background: radial-gradient(circle, #D4822E 0%, #D4822E 16%, #1A060B 17%, #2E2A23 100%);
-    transition: transform 0.7s ease;
+    background-color: #1A1A1A;
+    background-image:
+        radial-gradient(circle, #F2C230 0 16%, #111111 16% 19%, transparent 19%),
+        repeating-radial-gradient(circle, #1A1A1A 0 3px, #2B2B2B 3px 5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.9s ease;
 }
 
 .card-musica:hover .capa {
-    transform: perspective(800px) rotateY(-12deg);
+    transform: perspective(800px) translateX(-25%) rotateY(14deg);
+}
+
+.card-musica:hover .album {
+    box-shadow: -8px 10px 22px rgba(0, 0, 0, 0.45),
+                0 0 14px rgba(242, 194, 48, 0.55);
 }
 
 .card-musica:hover .disco {
-    transform: translateX(35%) rotate(180deg);
+    transform: translateX(60%) rotate(540deg);
 }
 
 .card-musica h3 {
