@@ -1,0 +1,583 @@
+/* configurações gerais */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5EEE5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+    transform: scale(1.05);
+}
+
+/* elementos compartilhados */
+.chamada {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.chamada-vinho {
+    color: #D4822E;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    max-width: 750px;
+    margin: 0 auto 40px;
+    color: #542A3D;
+    text-align: center;
+}
+
+.caixa-destaque {
+    margin: 35px 0;
+    padding: 22px 25px;
+    background-color: #3A2026;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.caixa-destaque h3 {
+    margin-top: 0;
+    color: #D4822E;
+}
+
+.caixa-destaque p {
+    margin-bottom: 0;
+    color: #F5EEE5;
+}
+
+.frase-final {
+    margin-top: 35px;
+    padding: 20px 25px;
+    background-color: #FFF9F1;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.frase-final p {
+    margin: 0;
+    color: #2A1216;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 35px;
+    color: #D4822E;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.voltar:hover {
+    color: #F5EEE5;
+    transform: translateY(-3px);
+}
+
+.voltar-claro {
+    color: #D4822E;
+}
+
+/* apresentação */
+.introducao {
+    padding: 60px 4%;
+    background-color: #F5EEE5;
+}
+
+.conteudo-introducao {
+    max-width: 1300px;
+    margin: 0 auto 25px;
+}
+
+.conteudo-introducao h2 {
+    margin: 15px 0 5px;
+    color: #2A1216;
+    font-size: 46px;
+}
+
+.conteudo-introducao h3 {
+    margin: 0 0 20px;
+    color: #94242C;
+    font-size: 21px;
+}
+
+.imagem-principal {
+    width: 100%;
+    max-width: 1300px;
+    height: 420px;
+    margin: 0 auto 30px;
+}
+
+.imagem-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%;
+    border-radius: 12px;
+
+}
+
+.texto-introducao {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.texto-introducao p {
+    color: #542A3D;
+    font-size: 16px;
+}
+
+/* cards de escolha */
+.escolha {
+    padding: 70px 10%;
+    background-color: #EADCCB;
+    scroll-margin-top: 20px;
+}
+
+.container-escolha {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-escolha h2 {
+    margin: 15px 0;
+    color: #2A1216;
+    font-size: 32px;
+}
+
+.grade-escolha {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px 0 0;
+    text-align: left;
+}
+
+.card-motivacao {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #D4822E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.1);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-motivacao:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(42, 18, 22, 0.2);
+}
+
+.numero {
+    color: #94242C;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-motivacao h3 {
+    color: #2A1216;
+    font-size: 20px;
+}
+
+.card-motivacao p {
+    flex: 1;
+    color: #542A3D;
+    font-size: 14px;
+}
+
+.ver-mais {
+    margin-top: 10px;
+    color: #94242C;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 1. primeiro ano */
+.primeiro-ano {
+    padding: 70px 10%;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    scroll-margin-top: 20px;
+}
+
+.container-primeiro-ano {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container-primeiro-ano h2 {
+    margin: 15px 0 25px;
+    color: #D4822E;
+    font-size: 32px;
+}
+
+.container-primeiro-ano > p {
+    color: #F1E6D2;
+    font-size: 16px;
+}
+
+.explicacao-imagem {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.explicacao-imagem img {
+    width: 45%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.explicacao-imagem div {
+    flex: 1;
+}
+
+.explicacao-imagem h3 {
+    color: #D4822E;
+    font-size: 23px;
+}
+
+.explicacao-imagem p {
+    color: #F1E6D2;
+}
+
+/* 2. equipamento */
+.equipamento {
+    padding: 70px 10%;
+    background-color: #F5EEE5;
+    scroll-margin-top: 20px;
+}
+
+.container-equipamento {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container-equipamento h2 {
+    margin: 15px 0;
+    color: #2A1216;
+    font-size: 32px;
+    text-align: center;
+}
+
+.container-equipamento > .chamada {
+    display: block;
+    text-align: center;
+}
+
+.conteudo-equipamento {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.imagem-equipamento {
+    width: 48%;
+}
+
+.imagem-equipamento img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.texto-equipamento {
+    flex: 1;
+}
+
+.texto-equipamento h3 {
+    color: #94242C;
+    font-size: 23px;
+}
+
+.texto-equipamento p {
+    color: #542A3D;
+}
+
+/* 3. som feio e dor nos dedos */
+.som-feio {
+    padding: 70px 10%;
+    background-color: #2A1216;
+    scroll-margin-top: 20px;
+}
+
+.container-som-feio {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.container-som-feio h2 {
+    margin: 15px 0;
+    color: #D4822E;
+    font-size: 32px;
+}
+
+.container-som-feio > p {
+    color: #F1E6D2;
+}
+
+.lista-desafios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.desafio {
+    display: flex;
+    gap: 18px;
+    padding: 22px;
+    background-color: #3A2026;
+    border: 1px solid #542A3D;
+    border-radius: 10px;
+}
+
+.desafio > span {
+    color: #D4822E;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.desafio h3 {
+    margin: 0 0 8px;
+    color: #F5EEE5;
+    font-size: 18px;
+}
+
+.desafio p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 14px;
+}
+
+.treinamento {
+    margin-top: 35px;
+    padding: 30px;
+    background-color: #F5EEE5;
+    border-radius: 10px;
+}
+
+.treinamento h3 {
+    margin-top: 0;
+    color: #94242C;
+    font-size: 23px;
+}
+
+.treinamento li {
+    color: #542A3D;
+    line-height: 1.8;
+}
+
+.treinamento ol {
+    padding-left: 22px;
+}
+
+/* mensagem final */
+.mensagem-final {
+    padding: 70px 10%;
+    background-color: #EADCCB;
+    text-align: center;
+}
+
+.container-mensagem-final {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container-mensagem-final h2 {
+    margin: 15px 0;
+    color: #2A1216;
+    font-size: 32px;
+}
+
+/* solução dentro dos desafios */
+.desafio .solucao {
+    margin-top: 12px;
+    padding-left: 12px;
+    border-left: 3px solid #D4822E;
+    color: #F5EEE5;
+}
+
+.desafio .solucao strong {
+    color: #D4822E;
+}
+
+/* guitarristas que já passaram por isso */
+.grade-guitarristas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.card-guitarrista {
+    overflow: hidden;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.card-guitarrista:hover {
+    transform: translateY(-7px);
+}
+
+.card-guitarrista img {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.informacao-guitarrista {
+    padding: 22px;
+}
+
+.informacao-guitarrista span {
+    color: #94242C;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.informacao-guitarrista h3 {
+    color: #2A1216;
+    font-size: 21px;
+}
+
+.informacao-guitarrista p {
+    margin-bottom: 0;
+    color: #542A3D;
+    font-size: 14px;
+}
+
+/* rodapé */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+    margin-top: auto;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+/* telas menores */
+@media (max-width: 800px) {
+    .cabecalho {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .grade-escolha,
+    .grade-guitarristas,
+    .lista-desafios {
+        grid-template-columns: 1fr;
+    }
+
+    .explicacao-imagem,
+    .conteudo-equipamento {
+        flex-direction: column;
+    }
+
+    .explicacao-imagem img,
+    .imagem-equipamento {
+        width: 100%;
+    }
+
+    .conteudo-introducao h2 {
+        font-size: 34px;
+    }
+}
