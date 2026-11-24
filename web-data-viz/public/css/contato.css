@@ -232,18 +232,4 @@ p {
     margin: 0;
 }
 
-/* telas menores */
-@media (max-width: 900px) {
-    .cabecalho {
-        flex-direction: column;
-        padding: 10px 20px;
-    }
-
-    .contato-intro h2 {
-        font-size: 34px;
-    }
-
-    .form-contato {
-        padding: 25px;
-    }
-}
+/* telas menores: regras @media removidas para simplificação mantendo aparência */

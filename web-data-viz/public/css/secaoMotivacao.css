@@ -554,30 +554,4 @@ p {
     margin: 0;
 }
 
-/* telas menores */
-@media (max-width: 800px) {
-    .cabecalho {
-        flex-direction: column;
-        padding: 10px 20px;
-    }
-
-    .grade-escolha,
-    .grade-guitarristas,
-    .lista-desafios {
-        grid-template-columns: 1fr;
-    }
-
-    .explicacao-imagem,
-    .conteudo-equipamento {
-        flex-direction: column;
-    }
-
-    .explicacao-imagem img,
-    .imagem-equipamento {
-        width: 100%;
-    }
-
-    .conteudo-introducao h2 {
-        font-size: 34px;
-    }
-}
+/* Regras @media removidas para simplificação mantendo aparência atual */
