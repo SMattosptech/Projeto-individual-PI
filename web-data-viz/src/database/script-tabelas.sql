@@ -55,3 +55,17 @@ CREATE TABLE perfil_musical (
     FOREIGN KEY (fk_usuario)
     REFERENCES usuario(id_usuario)
 );
+
+CREATE TABLE contato (
+    id_contato INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    mensagem VARCHAR(1000) NOT NULL,
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+SELECT * FROM usuario;
+
+SELECT * FROM perfil_musical;
+
+SELECT * FROM contato;
