@@ -1,0 +1,249 @@
+/* configurações gerais */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5EEE5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+    transform: scale(1.05);
+}
+
+.chamada-vinho {
+    color: #D4822E;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* apresentação */
+.contato-intro {
+    padding: 70px 10% 60px;
+    background-color: #2A1216;
+}
+
+.container-contato-intro {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contato-intro h2 {
+    margin: 15px 0 15px;
+    color: #F5EEE5;
+    font-size: 42px;
+}
+
+.contato-intro p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 16px;
+}
+
+/* formulário */
+.contato-form-area {
+    padding: 60px 10% 80px;
+    background-color: #F5EEE5;
+}
+
+.container-form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.form-contato {
+    padding: 35px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #D4822E;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(42, 18, 22, 0.12);
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2A1216;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #F5EEE5;
+    border: 1px solid #D8C4B1;
+    border-radius: 8px;
+    color: #2A1216;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #8C7480;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: #D4822E;
+    box-shadow: 0 0 0 3px rgba(212, 130, 46, 0.25);
+}
+
+.botao-enviar {
+    padding: 14px 34px;
+    background-color: #D4822E;
+    border: none;
+    border-radius: 30px;
+    color: #2A1216;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.botao-enviar:hover {
+    background-color: #94242C;
+    color: #F5EEE5;
+    transform: translateY(-3px);
+}
+
+.botao-enviar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.retorno {
+    min-height: 1.8em;
+    margin: 18px 0 0;
+    color: #542A3D;
+    font-size: 14px;
+}
+
+.retorno.sucesso {
+    color: #2E6B3A;
+    font-weight: bold;
+}
+
+.retorno.erro {
+    color: #94242C;
+    font-weight: bold;
+}
+
+/* rodapé */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+    margin-top: auto;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+/* telas menores */
+@media (max-width: 900px) {
+    .cabecalho {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .contato-intro h2 {
+        font-size: 34px;
+    }
+
+    .form-contato {
+        padding: 25px;
+    }
+}

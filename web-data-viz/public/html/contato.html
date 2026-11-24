@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/contato.css">
+
+    <title>PlayGuitar | Contato</title>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+
+        <div class="esquerda">
+            <a href="../playguitar.html">
+                <img id="logo" src="../assets/imgs/logo.png" alt="Logo PlayGuitar">
+            </a>
+
+            <h1 id="titulo">PlayGuitar</h1>
+        </div>
+
+        <nav class="navegacao">
+            <a href="../index.html">Home</a>
+            <a href="quem-somos.html">Sobre mim</a>
+            <a href="contato.html">Contato</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- Apresentação -->
+        <section class="contato-intro">
+
+            <div class="container-contato-intro">
+
+                <span class="chamada-vinho">CONTATO</span>
+
+                <h2>Fale comigo</h2>
+
+                <p>
+                    Quer trocar uma ideia sobre guitarra, tirar uma dúvida ou
+                    só deixar um recado? Escreva aqui embaixo que eu leio com
+                    carinho.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Formulário -->
+        <section class="contato-form-area">
+
+            <div class="container-form">
+
+                <form id="form-contato" class="form-contato" novalidate>
+
+                    <div class="campo">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" maxlength="100"
+                            placeholder="Como você se chama?" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">Seu e-mail</label>
+                        <input type="email" id="email" name="email" maxlength="150"
+                            placeholder="voce@exemplo.com" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="6" maxlength="1000"
+                            placeholder="Escreva sua mensagem..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="botao-enviar">Enviar mensagem</button>
+
+                    <p id="retorno" class="retorno" role="status" aria-live="polite"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            <p>© 2026 PlayGuitar. Todos os direitos reservados.</p>
+            <p>
+                Pinterest utilizado como plataforma de referência para imagens.
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+   <script>
+   
+        const API_URL = '/contato';
+
+        const form = document.getElementById('form-contato');
+        const retorno = document.getElementById('retorno');
+        const botao = form.querySelector('button');
+
+        function mostrar(texto, tipo) {
+            retorno.textContent = texto;
+            retorno.className = 'retorno ' + tipo;
+        }
+
+        form.addEventListener('submit', async function (evento) {
+            evento.preventDefault();
+
+            const dados = {
+                nome: form.nome.value.trim(),
+                email: form.email.value.trim(),
+                mensagem: form.mensagem.value.trim()
+            };
+
+            if (!dados.nome || !dados.email || !dados.mensagem) {
+                mostrar('Preencha nome, e-mail e mensagem para enviar.', 'erro');
+                return;
+            }
+
+            if (!form.email.checkValidity()) {
+                mostrar('Digite um e-mail válido.', 'erro');
+                return;
+            }
+
+            botao.disabled = true;
+            mostrar('Enviando...', '');
+
+            try {
+                const resposta = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dados)
+                });
+
+                if (!resposta.ok) {
+                    throw new Error('Falha ao enviar');
+                }
+
+                form.reset();
+                mostrar('Mensagem enviada! Obrigado por escrever.', 'sucesso');
+            } catch (erro) {
+                mostrar('Não foi possível enviar agora. Tente novamente em instantes.', 'erro');
+            } finally {
+                botao.disabled = false;
+            }
+        });
+    </script>
+
+</html>
