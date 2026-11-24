@@ -31,8 +31,7 @@
         </div>
 
         <nav class="navegacao">
-            <a href="cadastro.html" id="cadastro">Cadastro</a>
-            <a href="../html/contato.html" id="contatos">Contato</a>
+            <a href="../index.html">Voltar para a home</a>
         </nav>
     </header>
 
@@ -132,9 +131,9 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
 
                 // Verificando se o usuário já preencheu o perfil
-                setTimeout(function () {
+                    setTimeout(function () {
                     if (json.possuiPerfil) {
-                        window.location = "../index.html";
+                        window.location = "dashboard.html";
                     } else {
                         window.location = "formulario.html";
                     }
