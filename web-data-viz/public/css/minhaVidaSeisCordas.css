@@ -1,0 +1,1283 @@
+/* configurações gerais */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5EEE5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+p {
+    line-height: 1.8;
+}
+
+section {
+    scroll-margin-top: 10px;
+}
+
+/* cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #2A1216;
+    border-bottom: 5px solid #D4822E;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#titulo {
+    font-size: 25px;
+    margin-right: 20px;
+    color: #F5EEE5;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#titulo:hover {
+    color: #D4822E;
+    text-shadow: 0 0 12px rgba(212, 130, 46, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #F5EEE5;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #D4822E;
+    transform: scale(1.05);
+}
+
+/* elementos compartilhados */
+.chamada {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.chamada-vinho {
+    color: #D4822E;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.rotulo {
+    color: #94242C;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.subtitulo {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #542A3D;
+    text-align: center;
+}
+
+.subtitulo-claro {
+    max-width: 800px;
+    margin: 0 auto 25px;
+    color: #F1E6D2;
+    text-align: center;
+}
+
+.numero {
+    color: #94242C;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.caixa-destaque {
+    margin: 40px 0 0;
+    padding: 22px 25px;
+    background-color: #3A2026;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.caixa-destaque h3 {
+    margin-top: 0;
+    color: #D4822E;
+}
+
+.caixa-destaque p {
+    margin-bottom: 0;
+    color: #F5EEE5;
+}
+
+.frase-final {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 20px 25px;
+    background-color: #FFF9F1;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.frase-final p {
+    margin: 0;
+    color: #2A1216;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
+
+.citacao {
+    margin-top: 25px;
+    padding: 16px 20px;
+    background-color: #FFF9F1;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+}
+
+.citacao p {
+    margin: 0;
+    color: #2A1216;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* número em formato de palheta */
+.palheta-numero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 52px;
+    border-radius: 50% 50% 50% 50% / 38% 38% 62% 62%;
+    background: #D4822E;
+    color: #2A1216;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+/* duas colunas (texto e foto) */
+.duas-colunas {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.coluna-texto {
+    flex: 1;
+}
+
+.coluna-foto {
+    width: 42%;
+    margin: 0;
+}
+
+.coluna-foto img {
+    display: block;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    background-color: #1A060B;
+    box-shadow: 0 6px 18px rgba(42, 18, 22, 0.25);
+}
+
+.coluna-foto figcaption {
+    margin-top: 10px;
+    color: #542A3D;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* apresentação */
+.introducao {
+    padding: 70px 8% 60px;
+    background-color: #2A1216;
+}
+
+.container-introducao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.texto-introducao {
+    flex: 1;
+}
+
+.texto-introducao h2 {
+    margin: 15px 0 5px;
+    color: #F5EEE5;
+    font-size: 50px;
+}
+
+.texto-introducao h3 {
+    margin: 0 0 20px;
+    color: #D4822E;
+    font-size: 21px;
+}
+
+.texto-introducao p {
+    max-width: 560px;
+    color: #F1E6D2;
+    font-size: 16px;
+}
+
+.foto-hero {
+    width: 42%;
+}
+
+.foto-hero img {
+    display: block;
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid #D4822E;
+    border-radius: 12px;
+    background-color: #1A060B;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.marcos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+}
+
+.marco-tempo {
+    padding: 20px;
+    background-color: #3A2026;
+    border: 1px solid #542A3D;
+    border-top: 3px solid #D4822E;
+    border-radius: 10px;
+}
+
+.marco-tempo strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #D4822E;
+    font-size: 20px;
+}
+
+.marco-tempo span {
+    color: #F1E6D2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* índice */
+.indice {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 8%;
+    background-color: #EADCCB;
+    border-bottom: 1px solid #D8C4B1;
+}
+
+.indice a {
+    padding: 9px 18px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 30px;
+    color: #542A3D;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.indice a:hover {
+    background-color: #D4822E;
+    color: #2A1216;
+    transform: translateY(-3px);
+}
+
+/* como a música e a guitarra mudaram minha vida */
+.mudaram {
+    padding: 80px 10%;
+    background-color: #F5EEE5;
+}
+
+.container-mudaram {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.coluna-texto h2 {
+    margin: 15px 0 20px;
+    color: #2A1216;
+    font-size: 32px;
+}
+
+.coluna-texto p {
+    color: #542A3D;
+    font-size: 16px;
+}
+
+.instrumentos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.instrumentos li {
+    padding: 6px 16px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 20px;
+    color: #542A3D;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.instrumentos li.guitarra {
+    background-color: #D4822E;
+    border-color: #94242C;
+    color: #2A1216;
+}
+
+.valores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 60px;
+}
+
+.valor {
+    padding: 25px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #D4822E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.valor:hover {
+    transform: translateY(-6px);
+}
+
+.valor h3 {
+    color: #2A1216;
+    font-size: 20px;
+}
+
+.valor p {
+    margin: 0;
+    color: #542A3D;
+    font-size: 14px;
+}
+
+/* por que comecei */
+.comeco {
+    padding: 80px 10%;
+    background-color: #2A1216;
+}
+
+.container-comeco {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.container-comeco > .chamada-vinho,
+.container-comeco > h2 {
+    display: block;
+    text-align: center;
+}
+
+.container-comeco h2,
+.container-musicas h2,
+.container-guitarras h2,
+.container-inspiracoes h2,
+.container-continue h2 {
+    margin: 15px 0 20px;
+    font-size: 32px;
+}
+
+.container-comeco h2 {
+    color: #D4822E;
+}
+
+.lista-passos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px 0 0;
+}
+
+.passo {
+    display: flex;
+    gap: 16px;
+    padding: 22px;
+    background-color: #3A2026;
+    border: 1px solid #542A3D;
+    border-radius: 10px;
+}
+
+.passo > span {
+    color: #D4822E;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.passo h3 {
+    margin: 0 0 8px;
+    color: #F5EEE5;
+    font-size: 18px;
+}
+
+.passo p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 14px;
+}
+
+/* primeiras músicas */
+.musicas {
+    overflow-x: hidden;
+    padding: 80px 5%;
+    background-color: #EADCCB;
+    text-align: center;
+}
+
+.container-musicas {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.container-musicas h2 {
+    color: #2A1216;
+}
+
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.card-musica {
+    position: relative;
+    padding: 20px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #D4822E;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-musica:hover {
+    z-index: 5;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 22px rgba(42, 18, 22, 0.25);
+}
+
+/* capas e discos - animação 3D */
+.capa {
+    position: relative;
+    width: 76%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 18px;
+    transform: perspective(800px) rotateY(0deg);
+    transition: transform 0.7s ease;
+}
+
+.album {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #1A060B;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: box-shadow 0.7s ease;
+}
+
+.disco {
+    position: absolute;
+    z-index: 1;
+    top: 4%;
+    left: 4%;
+    width: 92%;
+    height: 92%;
+    border-radius: 50%;
+    background-color: #1A1A1A;
+    background-image:
+        radial-gradient(circle, #D4822E 0 16%, #111111 16% 19%, transparent 19%),
+        repeating-radial-gradient(circle, #1A1A1A 0 3px, #2B2B2B 3px 5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.9s ease;
+}
+
+.card-musica:hover .capa {
+    transform: perspective(800px) translateX(-25%) rotateY(14deg);
+}
+
+.card-musica:hover .album {
+    box-shadow: -8px 10px 22px rgba(0, 0, 0, 0.45),
+                0 0 14px rgba(212, 130, 46, 0.55);
+}
+
+.card-musica:hover .disco {
+    transform: translateX(60%) rotate(540deg);
+}
+
+.ordem {
+    color: #94242C;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.card-musica h3 {
+    margin: 10px 0 5px;
+    color: #2A1216;
+    font-size: 18px;
+}
+
+.card-musica p {
+    margin: 0;
+    color: #542A3D;
+    font-size: 14px;
+}
+
+/* minhas guitarras */
+.guitarras {
+    padding: 80px 8%;
+    background-color: #F5EEE5;
+}
+
+.container-guitarras {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-guitarras h2 {
+    color: #2A1216;
+}
+
+.par-guitarras {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+.seta-meio {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    margin-left: -28px;
+    border: 3px solid #94242C;
+    border-radius: 50%;
+    background-color: #D4822E;
+    color: #2A1216;
+    font-size: 26px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(42, 18, 22, 0.35);
+}
+
+.guitarra-card {
+    overflow: hidden;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(42, 18, 22, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.guitarra-card:hover {
+    transform: translateY(-7px);
+}
+
+.guitarra-card img {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    background-color: #1A060B;
+}
+
+.guitarra-info {
+    padding: 26px;
+}
+
+.etiqueta {
+    color: #94242C;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.guitarra-info h3 {
+    margin: 8px 0 15px;
+    color: #2A1216;
+    font-size: 26px;
+}
+
+.guitarra-info p {
+    color: #542A3D;
+    font-size: 15px;
+}
+
+.ficha {
+    display: flex;
+    gap: 12px;
+    margin: 0 0 15px;
+}
+
+.ficha div {
+    flex: 1;
+    padding: 10px 12px;
+    background-color: #F5EEE5;
+    border-left: 3px solid #D4822E;
+    border-radius: 0 6px 6px 0;
+}
+
+.ficha dt {
+    color: #94242C;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ficha dd {
+    margin: 3px 0 0;
+    color: #2A1216;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* guitarristas que me inspiram */
+.inspiracoes {
+    padding: 80px 8%;
+    background-color: #2A1216;
+}
+
+.container-inspiracoes {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-inspiracoes h2 {
+    color: #D4822E;
+}
+
+.grade-inspiracoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.inspiracao {
+    padding: 22px;
+    background-color: #3A2026;
+    border: 1px solid #542A3D;
+    border-top: 4px solid #D4822E;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.inspiracao:hover {
+    transform: translateY(-6px);
+}
+
+.inspiracao:hover .palheta-numero,
+.ideia:hover .palheta-numero {
+    transform: rotate(-12deg);
+}
+
+.inspiracao .rotulo {
+    display: block;
+    margin-top: 16px;
+    color: #D4822E;
+}
+
+.inspiracao h3 {
+    margin: 6px 0 8px;
+    color: #F5EEE5;
+    font-size: 19px;
+}
+
+.inspiracao p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.mencao-honrosa {
+    margin-top: 30px;
+    padding: 28px 30px;
+    background-color: #1A060B;
+    border: 1px solid #D4822E;
+    border-left: 6px solid #D4822E;
+    border-radius: 0 10px 10px 0;
+    text-align: left;
+}
+
+.mencao-honrosa .rotulo {
+    color: #D4822E;
+}
+
+.mencao-honrosa h3 {
+    margin: 8px 0 10px;
+    color: #F5EEE5;
+    font-size: 24px;
+}
+
+.mencao-honrosa p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 15px;
+}
+
+/* blues */
+.blues {
+    padding: 80px 10%;
+    background-color: #EADCCB;
+}
+
+.container-blues {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bloco-braco {
+    margin: 60px 0 40px;
+    text-align: center;
+}
+
+.braco-blues {
+    position: relative;
+    max-width: 560px;
+    height: 170px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #3A2026;
+    background-image:
+        repeating-linear-gradient(to right, transparent 0, transparent calc(25% - 3px), #754653 calc(25% - 3px), #754653 25%),
+        linear-gradient(#F1E6D2, #F1E6D2),
+        linear-gradient(#F1E6D2, #F1E6D2),
+        linear-gradient(#F1E6D2, #F1E6D2),
+        linear-gradient(#F1E6D2, #F1E6D2),
+        linear-gradient(#F1E6D2, #F1E6D2),
+        linear-gradient(#F1E6D2, #F1E6D2);
+    background-size: 100% 100%, 100% 1px, 100% 1px, 100% 1.5px, 100% 2px, 100% 2.5px, 100% 3px;
+    background-position: 0 0, 0 14px, 0 42px, 0 70px, 0 98px, 0 126px, 0 153px;
+    background-repeat: no-repeat;
+    border: 1px solid #542A3D;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(42, 18, 22, 0.3);
+}
+
+.nota-pent {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    border: 2px solid #F1E6D2;
+    border-radius: 50%;
+    background-color: #D4822E;
+    opacity: 0.25;
+    animation: acender 3s ease-in-out infinite;
+}
+
+.nota-pent:nth-child(1)  { top: 146px; left: 12.5%; animation-delay: 0s; }
+.nota-pent:nth-child(2)  { top: 146px; left: 87.5%; animation-delay: 0.25s; }
+.nota-pent:nth-child(3)  { top: 118px; left: 12.5%; animation-delay: 0.5s; }
+.nota-pent:nth-child(4)  { top: 118px; left: 62.5%; animation-delay: 0.75s; }
+.nota-pent:nth-child(5)  { top: 90px;  left: 12.5%; animation-delay: 1s; }
+.nota-pent:nth-child(6)  { top: 90px;  left: 62.5%; animation-delay: 1.25s; }
+.nota-pent:nth-child(7)  { top: 62px;  left: 12.5%; animation-delay: 1.5s; }
+.nota-pent:nth-child(8)  { top: 62px;  left: 62.5%; animation-delay: 1.75s; }
+.nota-pent:nth-child(9)  { top: 34px;  left: 12.5%; animation-delay: 2s; }
+.nota-pent:nth-child(10) { top: 34px;  left: 87.5%; animation-delay: 2.25s; }
+.nota-pent:nth-child(11) { top: 6px;   left: 12.5%; animation-delay: 2.5s; }
+.nota-pent:nth-child(12) { top: 6px;   left: 87.5%; animation-delay: 2.75s; }
+
+@keyframes acender {
+    0%, 30%, 100% {
+        opacity: 0.25;
+        transform: scale(0.85);
+        box-shadow: none;
+    }
+    4%, 10% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 14px #D4822E;
+    }
+}
+
+.numeros-trastes {
+    display: flex;
+    max-width: 560px;
+    margin: 8px auto 0;
+}
+
+.numeros-trastes span {
+    flex: 1;
+    color: #542A3D;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.legenda-braco {
+    margin: 12px 0 0;
+    color: #542A3D;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.subtitulo-bloco {
+    margin: 0 0 25px;
+    color: #2A1216;
+    font-size: 24px;
+    text-align: center;
+}
+
+.grade-licoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.licao {
+    padding: 22px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-left: 4px solid #94242C;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-left-color 0.3s ease;
+}
+
+.licao:hover {
+    transform: translateY(-4px);
+    border-left-color: #D4822E;
+}
+
+.licao h4 {
+    margin: 0 0 8px;
+    color: #94242C;
+    font-size: 17px;
+}
+
+.licao p {
+    margin: 0;
+    color: #542A3D;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.texto-largo {
+    max-width: 800px;
+    margin: 35px auto 0;
+    color: #542A3D;
+    font-size: 16px;
+    text-align: center;
+}
+
+.momento {
+    max-width: 850px;
+    margin: 40px auto 0;
+    padding: 28px 30px;
+    background-color: #2A1216;
+    border-left: 5px solid #D4822E;
+    border-radius: 0 10px 10px 0;
+}
+
+.momento .rotulo {
+    color: #D4822E;
+}
+
+.momento p {
+    color: #F1E6D2;
+    font-size: 15px;
+}
+
+.momento p:last-child {
+    margin-bottom: 0;
+}
+
+/* a arte do improviso */
+.improviso {
+    padding: 80px 8%;
+    background-color: #2A1216;
+}
+
+.container-improviso {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.abertura-improviso {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.texto-improviso {
+    flex: 1;
+}
+
+.texto-improviso h2 {
+    margin: 15px 0 20px;
+    color: #D4822E;
+    font-size: 38px;
+}
+
+.texto-improviso p {
+    color: #F1E6D2;
+    font-size: 16px;
+}
+
+/* cordas vibrando e palheta varrendo */
+.cordas-animadas {
+    position: relative;
+    flex-shrink: 0;
+    width: 300px;
+    height: 240px;
+    overflow: hidden;
+    background-color: #1A060B;
+    border: 1px solid #542A3D;
+    border-radius: 12px;
+}
+
+.corda {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    background: linear-gradient(to right, transparent, #F1E6D2 10%, #F1E6D2 90%, transparent);
+    animation: vibrar 0.1s linear infinite alternate;
+}
+
+.corda:nth-child(1) { top: 30px;  height: 4px;   animation-delay: 0s; }
+.corda:nth-child(2) { top: 64px;  height: 3.5px; animation-delay: -0.03s; }
+.corda:nth-child(3) { top: 98px;  height: 3px;   animation-delay: -0.06s; }
+.corda:nth-child(4) { top: 132px; height: 2px;   animation-delay: -0.02s; }
+.corda:nth-child(5) { top: 166px; height: 1.5px; animation-delay: -0.05s; }
+.corda:nth-child(6) { top: 200px; height: 1px;   animation-delay: -0.08s; }
+
+@keyframes vibrar {
+    from {
+        transform: translateY(-2px);
+    }
+    to {
+        transform: translateY(2px);
+    }
+}
+
+.palheta {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 36px;
+    height: 42px;
+    margin-left: -18px;
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+    background: #D4822E;
+    border: 2px solid #94242C;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    animation: varrer 2s ease-in-out infinite;
+}
+
+@keyframes varrer {
+    0%, 100% {
+        transform: translateY(8px);
+    }
+    50% {
+        transform: translateY(188px);
+    }
+}
+
+.grade-improviso {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 55px;
+}
+
+.ideia {
+    padding: 25px;
+    background-color: #3A2026;
+    border: 1px solid #542A3D;
+    border-top: 4px solid #D4822E;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.ideia:hover {
+    transform: translateY(-6px);
+}
+
+.ideia h3 {
+    margin: 18px 0 8px;
+    color: #F5EEE5;
+    font-size: 19px;
+}
+
+.ideia p {
+    margin: 0;
+    color: #F1E6D2;
+    font-size: 14px;
+}
+
+.treino {
+    margin-top: 60px;
+    padding: 35px;
+    background-color: #F5EEE5;
+    border-radius: 12px;
+}
+
+.treino > h3 {
+    margin: 0 0 5px;
+    color: #94242C;
+    font-size: 26px;
+    text-align: center;
+}
+
+.treino .passo {
+    background-color: #FFF9F1;
+    border-color: #D8C4B1;
+}
+
+.treino .passo > span {
+    color: #94242C;
+}
+
+.treino .passo h3 {
+    color: #2A1216;
+}
+
+.treino .passo p {
+    color: #542A3D;
+}
+
+.conselho {
+    max-width: 800px;
+    margin: 30px auto 0;
+    padding: 18px 22px;
+    background-color: #FFF9F1;
+    border-left: 4px solid #D4822E;
+    border-radius: 0 8px 8px 0;
+    color: #2A1216;
+}
+
+.conselho strong {
+    color: #94242C;
+}
+
+/* continue explorando */
+.continue {
+    padding: 70px 10%;
+    background-color: #F5EEE5;
+}
+
+.container-continue {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-continue h2 {
+    color: #2A1216;
+}
+
+.grade-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    text-align: left;
+}
+
+.link-card {
+    display: block;
+    padding: 25px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-top: 4px solid #D4822E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.1);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(42, 18, 22, 0.2);
+}
+
+.link-card h3 {
+    margin: 0 0 8px;
+    color: #2A1216;
+    font-size: 20px;
+}
+
+.link-card p {
+    margin: 0;
+    color: #542A3D;
+    font-size: 14px;
+}
+
+/* rodapé */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #2A1216;
+    color: #F5EEE5;
+    border-top: 4px solid #D4822E;
+    margin-top: auto;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+/* quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .corda,
+    .palheta,
+    .nota-pent {
+        animation: none;
+    }
+
+    .palheta {
+        transform: translateY(100px);
+    }
+}
+
+/* telas médias */
+@media (max-width: 1000px) {
+    .grade-inspiracoes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grade-licoes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* telas menores */
+@media (max-width: 900px) {
+    .cabecalho {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .container-introducao,
+    .duas-colunas,
+    .abertura-improviso {
+        flex-direction: column;
+    }
+
+    .foto-hero,
+    .coluna-foto {
+        width: 100%;
+    }
+
+    .texto-introducao h2 {
+        font-size: 36px;
+    }
+
+    .marcos,
+    .valores,
+    .lista-passos,
+    .grade-cards,
+    .par-guitarras,
+    .grade-improviso,
+    .grade-links {
+        grid-template-columns: 1fr;
+    }
+
+    .seta-meio {
+        display: none;
+    }
+
+    .ficha {
+        flex-direction: column;
+    }
+
+    .cordas-animadas {
+        width: 100%;
+    }
+
+    .coluna-foto img,
+    .foto-hero img {
+        height: 380px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grade-inspiracoes,
+    .grade-licoes {
+        grid-template-columns: 1fr;
+    }
+}

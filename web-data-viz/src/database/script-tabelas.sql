@@ -9,11 +9,6 @@ CREATE TABLE usuario (
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE objetivo_musical (
-    id_objetivo INT PRIMARY KEY AUTO_INCREMENT,
-    descricao VARCHAR(100) NOT NULL UNIQUE
-);
-
 CREATE TABLE perfil_musical (
     id_perfil INT PRIMARY KEY AUTO_INCREMENT,
     fk_usuario INT NOT NULL UNIQUE,
@@ -21,14 +16,16 @@ CREATE TABLE perfil_musical (
     tempo_experiencia VARCHAR(30),
     nivel VARCHAR(20),
     genero_favorito VARCHAR(60) NOT NULL,
+    objetivo_musical VARCHAR(100) NOT NULL,
     guitarra_atual VARCHAR(100),
     guitarra_desejada VARCHAR(100),
-    fk_objetivo INT NOT NULL,
+
     CONSTRAINT chk_nivel
     CHECK (
         nivel IN ('Iniciante', 'Intermediário', 'Avançado')
         OR nivel IS NULL
     ),
+
     CONSTRAINT chk_experiencia
     CHECK (
         tempo_experiencia IN (
@@ -56,9 +53,5 @@ CREATE TABLE perfil_musical (
 
     CONSTRAINT fk_perfil_usuario
     FOREIGN KEY (fk_usuario)
-    REFERENCES usuario(id_usuario),
-
-    CONSTRAINT fk_perfil_objetivo
-    FOREIGN KEY (fk_objetivo)
-    REFERENCES objetivo_musical(id_objetivo)
+    REFERENCES usuario(id_usuario)
 );
