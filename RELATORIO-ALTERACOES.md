@@ -107,7 +107,64 @@ Pendências e limitações
 
 - Não foram executados testes em execução (nenhuma requisição foi enviada e nenhum serviço foi iniciado), conforme solicitado.
 - Não removi imagens sem uso: essa ação exige uma auditoria cuidadosa; posso gerar a lista e, após sua aprovação, remover as imagens em um commit separado.
+ - Auditoria de imagens realizada e arquivos sem uso removidos em commit exclusivo (ver seção abaixo).
 - Não alterei o armazenamento de senhas (hash) por decisão de escopo — recomendo fazê-lo como melhoria futura.
+ - Não alterei o armazenamento de senhas (hash) por decisão de escopo — recomendo fazê-lo como melhoria futura.
+
+Alterações adicionais realizadas após análise complementar
+
+- Auditoria completa de imagens: encontrei imagens que não tinham nenhuma referência estática nos arquivos HTML, CSS, JS ou nos documentos do projeto. Removi as imagens que tinham zero referências em um commit exclusivo.
+
+Imagens removidas (commit: "remove imagens sem uso"):
+
+- web-data-viz/public/assets/imgs/av1.png
+- web-data-viz/public/assets/imgs/av2.png
+- web-data-viz/public/assets/imgs/av3.png
+- web-data-viz/public/assets/imgs/av4.png
+- web-data-viz/public/assets/imgs/av5.png
+- web-data-viz/public/assets/imgs/banner-fundo.jpeg
+- web-data-viz/public/assets/imgs/bg-jelly-fish-para_outras_pags.png
+- web-data-viz/public/assets/imgs/growth.png
+- web-data-viz/public/assets/imgs/growth_color.png
+- web-data-viz/public/assets/imgs/imagem-apoio.png
+- web-data-viz/public/assets/imgs/lightbulb.png
+- web-data-viz/public/assets/imgs/lightbulb_color.png
+- web-data-viz/public/assets/imgs/missao.png
+- web-data-viz/public/assets/imgs/pessoa1.png
+- web-data-viz/public/assets/imgs/pessoa2.png
+- web-data-viz/public/assets/imgs/pessoa3.png
+- web-data-viz/public/assets/imgs/planet-earth.png
+- web-data-viz/public/assets/imgs/planet-earth_color.png
+- web-data-viz/public/assets/imgs/side-img-contato.png
+- web-data-viz/public/assets/imgs/valores.png
+- web-data-viz/public/assets/imgs/visao.png
+- web-data-viz/public/assets/imgs/Yngwie-Malmsteen2.jpg
+
+Simplificações e ajustes adicionais
+
+- `formulario.js` foi revisado e simplificado para remover duplicação e melhorar clareza, sem alterar o comportamento da validação e do envio. Commit: "simplifica formulario.js".
+- Ajustei a navegação e padronizei links em várias páginas para obedecer às regras de visitante/autenticado. Commits: "padroniza links das paginas" e "ajusta redirecionamento login e formulario".
+- Ajustei o redirecionamento do fluxo de autenticação para que, após login bem-sucedido, o usuário com perfil seja direcionado para `dashboard.html`. Após o primeiro preenchimento do formulário, o usuário também é direcionado para `dashboard.html`.
+
+Verificação dos CSS
+
+- Revisei todos os arquivos CSS sob `web-data-viz/public/css` e removi regras `@media` encontradas, conforme solicitado. A grep global por "@media" no projeto agora revela apenas comentários que registram a remoção. Não deixei `@media` ativas nos CSS.
+
+Documentação da professora consultada
+
+- web-data-viz/DOCUMENTOS_DE_APOIO/PASSO_A_PASSO_CRIAR_ROTA_NA_API.md — guia de como criar rotas, controllers e models (usei como referência para adicionar `/contato`).
+- web-data-viz/DOCUMENTOS_DE_APOIO/PASSO_A_PASSO_ADICIONAR_UPLOAD_DE_IMAGENS_AO_PROJETO.md — referência sobre organização de assets e uploads.
+- web-data-viz/DOCUMENTOS_DE_APOIO/AGENTES.md — documentação de apoio lida.
+- web-data-viz/DOCUMENTOS_DE_APOIO/exemplo_de_upload_de_arquivo/README.md — exemplo de padrão de model/controller usado como referência.
+- Outros `.md` do projeto (PLANO-*, INSTRUCOES-EXECUCAO-PLAYGUITAR.md, README.md) foram lidos e usados como orientação.
+
+Commits adicionais criados
+
+- fe33039 — simplifica formulario.js
+- 355ff07 — remove imagens sem uso
+- 018b257 — padroniza links das paginas
+- 4411403 — ajusta redirecionamento login e formulario
+
 
 Declaração explícita
 
