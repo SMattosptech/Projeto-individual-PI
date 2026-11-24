@@ -222,6 +222,12 @@ section {
     box-shadow: 0 6px 18px rgba(42, 18, 22, 0.25);
 }
 
+/* foto do congresso: desce o enquadramento para aparecer a guitarra.
+   Se precisar de mais, aumente a porcentagem (ex.: 45%); de menos, diminua. */
+.coluna-foto img.foto-congresso {
+    object-position: center 35%;
+}
+
 .coluna-foto figcaption {
     margin-top: 10px;
     color: #542A3D;
@@ -440,8 +446,7 @@ section {
 .container-comeco h2,
 .container-musicas h2,
 .container-guitarras h2,
-.container-inspiracoes h2,
-.container-continue h2 {
+.container-inspiracoes h2 {
     margin: 15px 0 20px;
     font-size: 32px;
 }
@@ -660,6 +665,12 @@ section {
     height: 340px;
     object-fit: cover;
     background-color: #1A060B;
+}
+
+/* foto da Ibanez: mostra a foto inteira, mais "de longe" */
+.guitarra-card img.foto-ibanez {
+    object-fit: contain;
+    object-position: center;
 }
 
 .guitarra-info {
@@ -969,7 +980,7 @@ section {
 
 /* a arte do improviso */
 .improviso {
-    padding: 80px 8%;
+    padding: 95px 8%;
     background-color: #2A1216;
 }
 
@@ -981,7 +992,7 @@ section {
 .abertura-improviso {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 55px;
 }
 
 .texto-improviso {
@@ -989,14 +1000,27 @@ section {
 }
 
 .texto-improviso h2 {
-    margin: 15px 0 20px;
+    margin: 15px 0 25px;
     color: #D4822E;
-    font-size: 38px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    line-height: 1.15;
 }
 
 .texto-improviso p {
     color: #F1E6D2;
     font-size: 16px;
+}
+
+.texto-improviso p.abertura-destaque {
+    margin: 0 0 28px;
+    padding-left: 20px;
+    border-left: 3px solid #D4822E;
+    color: #D4822E;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-style: italic;
+    line-height: 1.5;
 }
 
 /* cordas vibrando e palheta varrendo */
@@ -1058,11 +1082,50 @@ section {
     }
 }
 
+/* onda sonora decorativa */
+.onda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 60px;
+    margin: 65px 0 10px;
+}
+
+.onda span {
+    width: 4px;
+    height: 100%;
+    border-radius: 4px;
+    background: #D4822E;
+    opacity: 0.9;
+    transform: scaleY(0.15);
+    animation: pulsar 1.6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.12s);
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        transform: scaleY(0.15);
+    }
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+.subtitulo-improviso {
+    margin: 30px 0 0;
+    color: #F5EEE5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: normal;
+    text-align: center;
+}
+
 .grade-improviso {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    margin-top: 55px;
+    margin-top: 35px;
 }
 
 .ideia {
@@ -1071,11 +1134,12 @@ section {
     border: 1px solid #542A3D;
     border-top: 4px solid #D4822E;
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ideia:hover {
     transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .ideia h3 {
@@ -1135,56 +1199,80 @@ section {
     color: #94242C;
 }
 
-/* continue explorando */
-.continue {
+/* frase de fecho do improviso */
+.fecho-improviso {
+    max-width: 820px;
+    margin: 85px auto 0;
+    text-align: center;
+}
+
+.fecho-improviso::before {
+    content: "\201C";
+    display: block;
+    height: 50px;
+    color: #D4822E;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 100px;
+    line-height: 1;
+}
+
+.fecho-improviso p {
+    margin: 0;
+    color: #F5EEE5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* encerramento */
+.encerramento {
     padding: 70px 10%;
     background-color: #F5EEE5;
 }
 
-.container-continue {
-    max-width: 900px;
+.container-encerramento {
+    max-width: 780px;
     margin: 0 auto;
     text-align: center;
 }
 
-.container-continue h2 {
+.chamada-encerramento {
+    color: #94242C;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.container-encerramento h2 {
+    margin: 15px 0 22px;
     color: #2A1216;
+    font-size: 32px;
 }
 
-.grade-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    text-align: left;
-}
-
-.link-card {
-    display: block;
-    padding: 25px;
-    background-color: #FFF9F1;
-    border: 1px solid #D8C4B1;
-    border-top: 4px solid #D4822E;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.1);
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.link-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 16px rgba(42, 18, 22, 0.2);
-}
-
-.link-card h3 {
-    margin: 0 0 8px;
-    color: #2A1216;
-    font-size: 20px;
-}
-
-.link-card p {
-    margin: 0;
+.container-encerramento p {
+    margin: 0 0 14px;
     color: #542A3D;
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.botao-encerramento {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 14px 34px;
+    background-color: #D4822E;
+    border-radius: 30px;
+    color: #2A1216;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(42, 18, 22, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.botao-encerramento:hover {
+    background-color: #94242C;
+    color: #F5EEE5;
+    transform: translateY(-3px);
 }
 
 /* rodapé */
@@ -1205,12 +1293,17 @@ section {
 @media (prefers-reduced-motion: reduce) {
     .corda,
     .palheta,
-    .nota-pent {
+    .nota-pent,
+    .onda span {
         animation: none;
     }
 
     .palheta {
         transform: translateY(100px);
+    }
+
+    .onda span {
+        transform: scaleY(0.6);
     }
 }
 
@@ -1252,8 +1345,7 @@ section {
     .lista-passos,
     .grade-cards,
     .par-guitarras,
-    .grade-improviso,
-    .grade-links {
+    .grade-improviso {
         grid-template-columns: 1fr;
     }
 
@@ -1279,5 +1371,21 @@ section {
     .grade-inspiracoes,
     .grade-licoes {
         grid-template-columns: 1fr;
+    }
+
+    .texto-improviso h2 {
+        font-size: 36px;
+    }
+
+    .fecho-improviso p {
+        font-size: 24px;
+    }
+
+    .container-encerramento h2 {
+        font-size: 30px;
+    }
+
+    .onda span:nth-child(n+19) {
+        display: none;
     }
 }
