@@ -103,8 +103,8 @@ formulario.addEventListener("submit", async function (evento) {
         });
 
         if (resposta.ok) {
-            formulario.hidden = true;
-            confirmacao.hidden = false;
+            // Direciona para a dashboard após salvar o perfil (fluxo de primeiro acesso)
+            window.location = 'dashboard.html';
         } else {
             erroEnvio.textContent = "Não foi possível enviar agora. Tente novamente.";
             erroEnvio.hidden = false;
