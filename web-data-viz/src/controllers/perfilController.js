@@ -84,19 +84,9 @@ async function salvar(req, res) {
             }
         }
 
-        // Resolve objetivo: busca ou insere
-        let objetivoResultado = await perfilModel.buscarObjetivoPorDescricao(objetivo);
-        let id_objetivo;
+        // Com a estrutura atual do banco (objetivo_musical como texto),
+        // gravamos o texto diretamente na coluna objetivo_musical.
 
-        if (objetivoResultado && objetivoResultado.length > 0) {
-            id_objetivo = objetivoResultado[0].id_objetivo;
-        } else {
-            const inserir = await perfilModel.inserirObjetivo(objetivo);
-            // resultado de INSERT retorna objeto com insertId
-            id_objetivo = inserir.insertId;
-        }
-
-        // Preparar dados para salvar
         const dadosPerfil = {
             fk_usuario: id_usuario,
             toca_guitarra: toca_guitarra ? 1 : 0,
@@ -105,7 +95,7 @@ async function salvar(req, res) {
             genero_favorito: genero_favorito,
             guitarra_atual: guitarra_atual,
             guitarra_desejada: guitarra_desejada,
-            fk_objetivo: id_objetivo
+            objetivo_musical: objetivo
         };
 
         // Salvar (insert ou update via ON DUPLICATE KEY)
