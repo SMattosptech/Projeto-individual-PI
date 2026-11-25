@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: #FCF9F5;
+    background-color: #F5EEE5;
     overflow-x: hidden;
 }
 
@@ -173,7 +173,7 @@ body::before {
     align-items: center;
     justify-content: center;
     padding: 28px 40px;
-    background-color: #FCF9F5;
+    background-color: #F5EEE5;
 }
 
 .card-login {

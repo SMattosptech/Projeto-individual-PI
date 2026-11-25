@@ -199,7 +199,7 @@ body {
 .pergunta {
     margin-bottom: 16px;
     padding: 26px 28px;
-    background-color: #FFFDF8;
+    background-color: #FFF9F1;
     border: 1px solid #E2D9CE;
     border-radius: 16px;
     box-shadow: 0 10px 18px -10px rgba(42, 18, 22, 0.28);
@@ -341,7 +341,7 @@ body {
 
 .opcao input:checked + .caixa {
     border-color: #D4822E;
-    background-color: #FFF4E3;
+    background-color: #FFF9F1;
     box-shadow: 0 0 0 3px rgba(212, 130, 46, 0.14);
 }
 
@@ -377,7 +377,7 @@ body {
 
 .campo-texto input:not(:placeholder-shown) {
     border-color: #D4B78F;
-    background-color: #FFFBF4;
+    background-color: #FFF9F1;
 }
 
 .campo-texto input:focus {
@@ -479,7 +479,7 @@ body {
     margin: 20px auto 0;
     padding: 44px 34px;
     text-align: center;
-    background-color: #FFFDF8;
+    background-color: #FFF9F1;
     border: 1px solid #E2D9CE;
     border-top: 5px solid #F2C230;
     border-radius: 18px;

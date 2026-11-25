@@ -177,7 +177,7 @@ p {
 /* apresentação com disco preto */
 .introducao {
     padding: 70px 8%;
-    background-color: #EADCCB;
+    background-color: #F5EEE5;
     overflow: hidden;
 }
 
@@ -440,7 +440,7 @@ p {
 /* glossário */
 .glossario {
     padding: 70px 10%;
-    background-color: #EADCCB;
+    background-color: #F5EEE5;
 }
 
 .container-glossario {
@@ -717,7 +717,7 @@ p {
 /* mensagem final */
 .mensagem-final {
     padding: 70px 10%;
-    background-color: #EADCCB;
+    background-color: #F5EEE5;
     text-align: center;
 }
 
