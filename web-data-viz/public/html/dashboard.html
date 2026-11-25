@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayGuitar | Painel Admin</title>
+
+    <link rel="stylesheet" href="../css/dashboards.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- script do Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="janela">
+
+        <!-- barra lateral -->
+        <div class="menu">
+            <div class="logo">
+                <div class="disco"></div>
+                <div>
+                    <h2>PlayGuitar</h2>
+                    <span>PAINEL ADMIN</span>
+                </div>
+            </div>
+
+            <div class="linha-corda"></div>
+
+            <a class="botao-voltar" href="../index.html">Voltar para o site</a>
+        </div>
+
+        <!-- parte da direita -->
+        <div class="conteudo">
+
+            <div class="topo">
+                <span class="rotulo">DASHBOARD</span>
+                <h1>Visão geral</h1>
+                <p>O pulso da comunidade PlayGuitar</p>
+            </div>
+
+            <div class="corpo">
+
+                <!-- KPIs -->
+                <div class="kpis">
+
+                    <div class="card kpi">
+                        <div class="palheta">148</div>
+                        <div>
+                            <span class="rotulo">Usuários cadastrados</span>
+                            <p>total na plataforma</p>
+                        </div>
+                    </div>
+
+                    <div class="card kpi">
+                        <div class="palheta vinho-vivo">32</div>
+                        <div>
+                            <span class="rotulo">Novos cadastros</span>
+                            <p>nos últimos 30 dias</p>
+                        </div>
+                        <span class="variacao">▲ 18%</span>
+                    </div>
+
+                    <div class="card kpi">
+                        <div class="palheta">126</div>
+                        <div>
+                            <span class="rotulo">Perfis preenchidos</span>
+                            <p>85% do total</p>
+                        </div>
+                    </div>
+
+                    <div class="card kpi">
+                        <div class="palheta roxo">68%</div>
+                        <div>
+                            <span class="rotulo">Já tocam guitarra</span>
+                            <p>101 guitarristas</p>
+                        </div>
+                    </div>
+
+                    <div class="card kpi">
+                        <div class="palheta vinho-vivo">Inic.</div>
+                        <div>
+                            <span class="rotulo">Nível mais comum</span>
+                            <p>Iniciante, 36%</p>
+                        </div>
+                    </div>
+
+                    <div class="card kpi">
+                        <div class="palheta">12</div>
+                        <div>
+                            <span class="rotulo">Mensagens de contato</span>
+                            <p>3 ainda não lidas</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- primeira linha de gráficos -->
+                <div class="linha">
+
+                    <div class="card grande">
+                        <h3>Cadastros ao longo do tempo</h3>
+                        <p>Novos membros nos últimos 30 dias</p>
+                        <div class="area-grafico">
+                            <canvas id="graficoCadastros"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card pequeno">
+                        <h3>Toca ou quer aprender?</h3>
+                        <p>Perfil dos nossos membros</p>
+                        <div class="area-grafico">
+                            <canvas id="graficoToca"></canvas>
+                            <div class="centro-donut">
+                                <b>68%</b>
+                                <span>tocam</span>
+                            </div>
+                        </div>
+                        <div class="legenda">
+                            <span><i class="quadrado laranja"></i> Já toca <b>101</b></span>
+                            <span><i class="quadrado vinho-vivo"></i> Quer aprender <b>47</b></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- segunda linha de gráficos -->
+                <div class="linha">
+
+                    <div class="card pequeno">
+                        <h3>Nível de experiência</h3>
+                        <p>Perfis com nível informado</p>
+                        <div class="area-grafico">
+                            <canvas id="graficoNivel"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card pequeno">
+                        <h3>Gêneros favoritos</h3>
+                        <p>O gênero preferido de cada membro</p>
+                        <div class="area-grafico">
+                            <canvas id="graficoGeneros"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card pequeno">
+                        <h3>O que querem desenvolver</h3>
+                        <p>O que cada membro mais deseja melhorar</p>
+                        <div class="area-grafico">
+                            <canvas id="graficoObjetivos"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    // configurações que valem para todos os gráficos
+    Chart.defaults.color = '#542A3D';
+    Chart.defaults.font.family = 'Plus Jakarta Sans, Arial, sans-serif';
+    Chart.defaults.plugins.legend.display = false;
+
+    // cores do tooltip (caixinha que aparece ao passar o mouse)
+    var tooltip = {
+        backgroundColor: '#2A1216',
+        titleColor: '#F1E6D2',
+        bodyColor: '#F1E6D2'
+    };
+
+    function graficoCadastros() {
+
+        var dados = {
+            labels: ['01/11', '04/11', '07/11', '10/11', '13/11', '16/11', '19/11', '22/11', '25/11'],
+            datasets: [{
+                label: 'Novos cadastros',
+                data: [2, 4, 3, 5, 4, 3, 4, 4, 3],
+                borderColor: '#D4822E',
+                backgroundColor: 'rgba(212, 130, 46, 0.25)',
+                fill: true,
+                tension: 0.4
+            }]
+        };
+
+        var config = {
+            type: 'line',
+            data: dados,
+            options: {
+                maintainAspectRatio: false,
+                plugins: { tooltip: tooltip },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('graficoCadastros'), config);
+    }
+
+    function graficoToca() {
+
+        var dados = {
+            labels: ['Já toca', 'Quer aprender'],
+            datasets: [{
+                data: [101, 47],
+                backgroundColor: ['#D4822E', '#94242C']
+            }]
+        };
+
+        var config = {
+            type: 'doughnut',
+            data: dados,
+            options: {
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: { tooltip: tooltip }
+            }
+        };
+
+        new Chart(document.getElementById('graficoToca'), config);
+    }
+
+    function graficoNivel() {
+
+        var dados = {
+            labels: ['Iniciante (54)', 'Intermediário (41)', 'Avançado (21)'],
+            datasets: [{
+                label: 'Pessoas',
+                data: [54, 41, 21],
+                backgroundColor: ['#D4822E', '#94242C', '#542A3D']
+            }]
+        };
+
+        var config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { tooltip: tooltip }
+            }
+        };
+
+        new Chart(document.getElementById('graficoNivel'), config);
+    }
+
+    function graficoGeneros() {
+
+        var dados = {
+            labels: ['Rock (78)', 'Blues (52)', 'Metal (44)', 'MPB (31)', 'Jazz (18)'],
+            datasets: [{
+                label: 'Votos',
+                data: [78, 52, 44, 31, 18],
+                backgroundColor: ['#D4822E', '#94242C', '#542A3D', '#EBA55C', '#754653']
+            }]
+        };
+
+        var config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                maintainAspectRatio: false,
+                plugins: { tooltip: tooltip }
+            }
+        };
+
+        new Chart(document.getElementById('graficoGeneros'), config);
+    }
+
+    function graficoObjetivos() {
+
+        var dados = {
+            labels: ['Improvisação (46)', 'Velocidade (38)', 'Feeling (25)', 'Técnica (17)'],
+            datasets: [{
+                label: 'Pessoas',
+                data: [46, 38, 25, 17],
+                backgroundColor: ['#D4822E', '#94242C', '#542A3D', '#EBA55C']
+            }]
+        };
+
+        var config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { tooltip: tooltip }
+            }
+        };
+
+        new Chart(document.getElementById('graficoObjetivos'), config);
+    }
+
+    // chamando todos os gráficos (só depois que a fonte carregar)
+    document.fonts.ready.then(function () {
+        graficoCadastros();
+        graficoToca();
+        graficoNivel();
+        graficoGeneros();
+        graficoObjetivos();
+        });
+
+</script>
