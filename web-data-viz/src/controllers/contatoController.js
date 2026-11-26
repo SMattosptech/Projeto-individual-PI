@@ -2,31 +2,32 @@ var contatoModel = require("../models/contatoModel");
 
 async function enviar(req, res) {
     try {
-        const nome = req.body.nome;
-        const email = req.body.email;
-        const mensagem = req.body.mensagem;
+        const id_usuario = req.body.id_usuario;
+        const mensagem = req.body.mensagem ? req.body.mensagem.toString().trim() : "";
 
-        if (!nome || !email || !mensagem) {
-            return res.status(400).json({ mensagem: "nome, email e mensagem são obrigatórios." });
+        if (!id_usuario) {
+            return res.status(400).json({ mensagem: "id_usuario é obrigatório." });
         }
 
-        if (nome.length > 100) {
-            return res.status(400).json({ mensagem: "nome excede 100 caracteres." });
-        }
-
-        if (email.length > 150) {
-            return res.status(400).json({ mensagem: "email excede 150 caracteres." });
+        if (!mensagem) {
+            return res.status(400).json({ mensagem: "A mensagem é obrigatória." });
         }
 
         if (mensagem.length > 1000) {
-            return res.status(400).json({ mensagem: "mensagem excede 1000 caracteres." });
+            return res.status(400).json({ mensagem: "A mensagem excede 1000 caracteres." });
         }
 
-        await contatoModel.salvarContato({ nome, email, mensagem });
+        await contatoModel.salvarContato({ fk_usuario: id_usuario, mensagem: mensagem });
 
         return res.status(201).json({ mensagem: "Contato salvo com sucesso." });
     } catch (erro) {
         console.log(erro);
+
+        // o banco recusa quando o id_usuario não existe na tabela usuario
+        if (erro.code === "ER_NO_REFERENCED_ROW_2") {
+            return res.status(404).json({ mensagem: "Usuário não encontrado." });
+        }
+
         return res.status(500).json({ mensagem: "Erro ao salvar contato." });
     }
 }
