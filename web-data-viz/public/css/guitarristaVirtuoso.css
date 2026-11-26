@@ -7,7 +7,8 @@ html {
     scroll-behavior: smooth;
 }
 
-html, body {
+html,
+body {
     min-height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -164,7 +165,7 @@ p {
     text-align: center;
 }
 
-.frase-final p + p {
+.frase-final p+p {
     margin-top: 12px;
 }
 
@@ -177,7 +178,7 @@ p {
 /* apresentação com disco preto */
 .introducao {
     padding: 70px 8%;
-    background-color: #F5EEE5;
+    background-color: #EADCCB;
     overflow: hidden;
 }
 
@@ -236,13 +237,11 @@ p {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: conic-gradient(
-        transparent 0 20%,
-        rgba(245, 238, 229, 0.22) 25%,
-        transparent 30% 70%,
-        rgba(245, 238, 229, 0.22) 75%,
-        transparent 80%
-    );
+    background: conic-gradient(transparent 0 20%,
+            rgba(245, 238, 229, 0.22) 25%,
+            transparent 30% 70%,
+            rgba(245, 238, 229, 0.22) 75%,
+            transparent 80%);
 }
 
 .disco-rotulo {
@@ -513,7 +512,7 @@ p {
     font-size: 32px;
 }
 
-.texto-velocidade > p {
+.texto-velocidade>p {
     color: #F1E6D2;
 }
 
@@ -537,17 +536,47 @@ p {
     animation: vibrar 0.1s linear infinite alternate;
 }
 
-.corda:nth-child(1) { top: 30px;  height: 4px;   animation-delay: 0s; }
-.corda:nth-child(2) { top: 64px;  height: 3.5px; animation-delay: -0.03s; }
-.corda:nth-child(3) { top: 98px;  height: 3px;   animation-delay: -0.06s; }
-.corda:nth-child(4) { top: 132px; height: 2px;   animation-delay: -0.02s; }
-.corda:nth-child(5) { top: 166px; height: 1.5px; animation-delay: -0.05s; }
-.corda:nth-child(6) { top: 200px; height: 1px;   animation-delay: -0.08s; }
+.corda:nth-child(1) {
+    top: 30px;
+    height: 4px;
+    animation-delay: 0s;
+}
+
+.corda:nth-child(2) {
+    top: 64px;
+    height: 3.5px;
+    animation-delay: -0.03s;
+}
+
+.corda:nth-child(3) {
+    top: 98px;
+    height: 3px;
+    animation-delay: -0.06s;
+}
+
+.corda:nth-child(4) {
+    top: 132px;
+    height: 2px;
+    animation-delay: -0.02s;
+}
+
+.corda:nth-child(5) {
+    top: 166px;
+    height: 1.5px;
+    animation-delay: -0.05s;
+}
+
+.corda:nth-child(6) {
+    top: 200px;
+    height: 1px;
+    animation-delay: -0.08s;
+}
 
 @keyframes vibrar {
     from {
         transform: translateY(-2px);
     }
+
     to {
         transform: translateY(2px);
     }
@@ -568,12 +597,94 @@ p {
 }
 
 @keyframes varrer {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(8px);
     }
+
     50% {
         transform: translateY(188px);
     }
+}
+/* calculadora de intervalos */
+.calculadora-intervalos {
+    width: 100%;
+    margin-top: 32px;
+    padding: 20px 24px;
+    background-color: #FFF9F1;
+    border: 1px solid #D8C4B1;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(42, 18, 22, 0.08);
+    text-align: left;
+}
+
+.calculadora-intervalos h3 {
+    margin: 0 0 6px;
+    color: #94242C;
+    font-size: 18px;
+}
+
+.calculadora-intervalos p {
+    margin: 0;
+    color: #542A3D;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.campos-notas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 14px 0;
+}
+
+.campos-notas label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2A1216;
+    font-size: 12.5px;
+    font-weight: bold;
+}
+
+.campos-notas select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #D8C4B1;
+    border-radius: 6px;
+    background-color: #F5EEE5;
+    color: #2A1216;
+    font-size: 13.5px;
+}
+
+.calculadora-intervalos button {
+    width: 100%;
+    padding: 9px 14px;
+    background-color: #94242C;
+    color: #F5EEE5;
+    border: 1px solid #D4822E;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.calculadora-intervalos button:hover {
+    background-color: #2A1216;
+    color: #D4822E;
+}
+
+#resultadoIntervalo {
+    margin-top: 12px;
+    padding: 9px 12px;
+    background-color: #F5EEE5;
+    border: none;
+    border-radius: 6px;
+    color: #2A1216;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* treinar o ouvido */
@@ -612,7 +723,7 @@ p {
     box-shadow: 0 4px 8px rgba(42, 18, 22, 0.08);
 }
 
-.pergunta > span {
+.pergunta>span {
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -694,20 +805,54 @@ p {
     animation: acender 2.4s ease-in-out infinite;
 }
 
-.nota-braco:nth-child(1) { top: 125px; left: 18.75%; animation-delay: 0s; }
-.nota-braco:nth-child(2) { top: 101px; left: 31.25%; animation-delay: 0.4s; }
-.nota-braco:nth-child(3) { top: 77px;  left: 43.75%; animation-delay: 0.8s; }
-.nota-braco:nth-child(4) { top: 53px;  left: 31.25%; animation-delay: 1.2s; }
-.nota-braco:nth-child(5) { top: 29px;  left: 56.25%; animation-delay: 1.6s; }
-.nota-braco:nth-child(6) { top: 5px;   left: 43.75%; animation-delay: 2s; }
+.nota-braco:nth-child(1) {
+    top: 125px;
+    left: 18.75%;
+    animation-delay: 0s;
+}
+
+.nota-braco:nth-child(2) {
+    top: 101px;
+    left: 31.25%;
+    animation-delay: 0.4s;
+}
+
+.nota-braco:nth-child(3) {
+    top: 77px;
+    left: 43.75%;
+    animation-delay: 0.8s;
+}
+
+.nota-braco:nth-child(4) {
+    top: 53px;
+    left: 31.25%;
+    animation-delay: 1.2s;
+}
+
+.nota-braco:nth-child(5) {
+    top: 29px;
+    left: 56.25%;
+    animation-delay: 1.6s;
+}
+
+.nota-braco:nth-child(6) {
+    top: 5px;
+    left: 43.75%;
+    animation-delay: 2s;
+}
 
 @keyframes acender {
-    0%, 40%, 100% {
+
+    0%,
+    40%,
+    100% {
         opacity: 0.25;
         transform: scale(0.85);
         box-shadow: none;
     }
-    8%, 16% {
+
+    8%,
+    16% {
         opacity: 1;
         transform: scale(1.2);
         box-shadow: 0 0 14px #D4822E;
@@ -717,7 +862,7 @@ p {
 /* mensagem final */
 .mensagem-final {
     padding: 70px 10%;
-    background-color: #F5EEE5;
+    background-color: #EADCCB;
     text-align: center;
 }
 
@@ -745,5 +890,3 @@ p {
 .rodape p {
     margin: 0;
 }
-
-/* Regras @media removidas para simplificação mantendo aparência atual */
