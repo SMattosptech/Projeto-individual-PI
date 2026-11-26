@@ -354,8 +354,7 @@
 
                 <div class="ouvido-imagem">
 
-                    <img src="../assets/imgs/virtuoso-ouvido.jpg"
-                        alt="Guitarrista concentrado, ouvindo com atenção">
+                    <img src="../assets/imgs/virtuoso-ouvido.jpg" alt="Guitarrista concentrado, ouvindo com atenção">
 
                     <div class="caixa-destaque-claro">
                         <h3>Isso também serve para você</h3>
@@ -366,6 +365,66 @@
                             até onde quer evoluir.
                         </p>
                     </div>
+
+                </div>
+
+                <!-- Calculadora de intervalos -->
+                <div class="calculadora-intervalos">
+
+                    <h3>Descubra os intervalos musicais</h3>
+
+                    <p>
+                        Escolha duas notas musicais e descubra quantos
+                        semitons existem entre elas.
+                    </p>
+
+                    <div class="campos-notas">
+
+                        <div>
+                            <label for="notaInicial">Nota inicial</label>
+                            <select id="notaInicial">
+                                <option value="Dó">Dó</option>
+                                <option value="Dó#">Dó#</option>
+                                <option value="Ré">Ré</option>
+                                <option value="Ré#">Ré#</option>
+                                <option value="Mi">Mi</option>
+                                <option value="Fá">Fá</option>
+                                <option value="Fá#">Fá#</option>
+                                <option value="Sol">Sol</option>
+                                <option value="Sol#">Sol#</option>
+                                <option value="Lá">Lá</option>
+                                <option value="Lá#">Lá#</option>
+                                <option value="Si">Si</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="notaFinal">Nota final</label>
+                            <select id="notaFinal">
+                                <option value="Dó">Dó</option>
+                                <option value="Dó#">Dó#</option>
+                                <option value="Ré">Ré</option>
+                                <option value="Ré#">Ré#</option>
+                                <option value="Mi">Mi</option>
+                                <option value="Fá">Fá</option>
+                                <option value="Fá#">Fá#</option>
+                                <option value="Sol">Sol</option>
+                                <option value="Sol#">Sol#</option>
+                                <option value="Lá">Lá</option>
+                                <option value="Lá#">Lá#</option>
+                                <option value="Si">Si</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button type="button" onclick="calcularIntervalo()">
+                        Calcular intervalo
+                    </button>
+
+                    <p id="resultadoIntervalo">
+                        O resultado aparecerá aqui.
+                    </p>
 
                 </div>
 
@@ -422,6 +481,8 @@
         </div>
     </footer>
     <script src="../js/navegacao.js"></script>
+    <script src="../js/calculadoraIntervalos.js"></script>
 
 </body>
+
 </html>
