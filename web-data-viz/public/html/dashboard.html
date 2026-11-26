@@ -46,11 +46,10 @@
 
             <div class="corpo">
 
-                <!-- KPIs -->
                 <div class="kpis">
 
                     <div class="card kpi">
-                        <div class="palheta">148</div>
+                        <div class="palheta" id="kpiTotal">--</div>
                         <div>
                             <span class="rotulo">Usuários cadastrados</span>
                             <p>total na plataforma</p>
@@ -58,43 +57,43 @@
                     </div>
 
                     <div class="card kpi">
-                        <div class="palheta vinho-vivo">32</div>
+                        <div class="palheta vinho-vivo" id="kpiNovos">--</div>
                         <div>
                             <span class="rotulo">Novos cadastros</span>
                             <p>nos últimos 30 dias</p>
                         </div>
-                        <span class="variacao">▲ 18%</span>
+                        <span class="variacao" id="kpiVariacao"></span>
                     </div>
 
                     <div class="card kpi">
-                        <div class="palheta">126</div>
+                        <div class="palheta" id="kpiPerfis">--</div>
                         <div>
                             <span class="rotulo">Perfis preenchidos</span>
-                            <p>85% do total</p>
+                            <p id="kpiPerfisTexto">--</p>
                         </div>
                     </div>
 
                     <div class="card kpi">
-                        <div class="palheta roxo">68%</div>
+                        <div class="palheta roxo" id="kpiGuitarristasPct">--</div>
                         <div>
                             <span class="rotulo">Já tocam guitarra</span>
-                            <p>101 guitarristas</p>
+                            <p id="kpiGuitarristasTexto">--</p>
                         </div>
                     </div>
 
                     <div class="card kpi">
-                        <div class="palheta vinho-vivo">Inic.</div>
+                        <div class="palheta vinho-vivo" id="kpiNivelAbrev">--</div>
                         <div>
                             <span class="rotulo">Nível mais comum</span>
-                            <p>Iniciante, 36%</p>
+                            <p id="kpiNivelTexto">--</p>
                         </div>
                     </div>
 
                     <div class="card kpi">
-                        <div class="palheta">12</div>
+                        <div class="palheta" id="kpiMensagens">--</div>
                         <div>
                             <span class="rotulo">Mensagens de contato</span>
-                            <p>3 ainda não lidas</p>
+                            <p id="kpiMensagensTexto">--</p>
                         </div>
                     </div>
 
@@ -117,13 +116,13 @@
                         <div class="area-grafico">
                             <canvas id="graficoToca"></canvas>
                             <div class="centro-donut">
-                                <b>68%</b>
+                                <b id="donutPct">--</b>
                                 <span>tocam</span>
                             </div>
                         </div>
                         <div class="legenda">
-                            <span><i class="quadrado laranja"></i> Já toca <b>101</b></span>
-                            <span><i class="quadrado vinho-vivo"></i> Quer aprender <b>47</b></span>
+                            <span><i class="quadrado laranja"></i> Já toca <b id="legendaToca">0</b></span>
+                            <span><i class="quadrado vinho-vivo"></i> Quer aprender <b id="legendaQuer">0</b></span>
                         </div>
                     </div>
 
@@ -165,151 +164,4 @@
 </body>
 
 </html>
-
-<script>
-
-    // configurações que valem para todos os gráficos
-    Chart.defaults.color = '#542A3D';
-    Chart.defaults.font.family = 'Plus Jakarta Sans, Arial, sans-serif';
-    Chart.defaults.plugins.legend.display = false;
-
-    // cores do tooltip (caixinha que aparece ao passar o mouse)
-    var tooltip = {
-        backgroundColor: '#2A1216',
-        titleColor: '#F1E6D2',
-        bodyColor: '#F1E6D2'
-    };
-
-    function graficoCadastros() {
-
-        var dados = {
-            labels: ['01/11', '04/11', '07/11', '10/11', '13/11', '16/11', '19/11', '22/11', '25/11'],
-            datasets: [{
-                label: 'Novos cadastros',
-                data: [2, 4, 3, 5, 4, 3, 4, 4, 3],
-                borderColor: '#D4822E',
-                backgroundColor: 'rgba(212, 130, 46, 0.25)',
-                fill: true,
-                tension: 0.4
-            }]
-        };
-
-        var config = {
-            type: 'line',
-            data: dados,
-            options: {
-                maintainAspectRatio: false,
-                plugins: { tooltip: tooltip },
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        };
-
-        new Chart(document.getElementById('graficoCadastros'), config);
-    }
-
-    function graficoToca() {
-
-        var dados = {
-            labels: ['Já toca', 'Quer aprender'],
-            datasets: [{
-                data: [101, 47],
-                backgroundColor: ['#D4822E', '#94242C']
-            }]
-        };
-
-        var config = {
-            type: 'doughnut',
-            data: dados,
-            options: {
-                maintainAspectRatio: false,
-                cutout: '70%',
-                plugins: { tooltip: tooltip }
-            }
-        };
-
-        new Chart(document.getElementById('graficoToca'), config);
-    }
-
-    function graficoNivel() {
-
-        var dados = {
-            labels: ['Iniciante (54)', 'Intermediário (41)', 'Avançado (21)'],
-            datasets: [{
-                label: 'Pessoas',
-                data: [54, 41, 21],
-                backgroundColor: ['#D4822E', '#94242C', '#542A3D']
-            }]
-        };
-
-        var config = {
-            type: 'bar',
-            data: dados,
-            options: {
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                plugins: { tooltip: tooltip }
-            }
-        };
-
-        new Chart(document.getElementById('graficoNivel'), config);
-    }
-
-    function graficoGeneros() {
-
-        var dados = {
-            labels: ['Rock (78)', 'Blues (52)', 'Metal (44)', 'MPB (31)', 'Jazz (18)'],
-            datasets: [{
-                label: 'Votos',
-                data: [78, 52, 44, 31, 18],
-                backgroundColor: ['#D4822E', '#94242C', '#542A3D', '#EBA55C', '#754653']
-            }]
-        };
-
-        var config = {
-            type: 'bar',
-            data: dados,
-            options: {
-                maintainAspectRatio: false,
-                plugins: { tooltip: tooltip }
-            }
-        };
-
-        new Chart(document.getElementById('graficoGeneros'), config);
-    }
-
-    function graficoObjetivos() {
-
-        var dados = {
-            labels: ['Improvisação (46)', 'Velocidade (38)', 'Feeling (25)', 'Técnica (17)'],
-            datasets: [{
-                label: 'Pessoas',
-                data: [46, 38, 25, 17],
-                backgroundColor: ['#D4822E', '#94242C', '#542A3D', '#EBA55C']
-            }]
-        };
-
-        var config = {
-            type: 'bar',
-            data: dados,
-            options: {
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                plugins: { tooltip: tooltip }
-            }
-        };
-
-        new Chart(document.getElementById('graficoObjetivos'), config);
-    }
-
-    // chamando todos os gráficos (só depois que a fonte carregar)
-    document.fonts.ready.then(function () {
-        graficoCadastros();
-        graficoToca();
-        graficoNivel();
-        graficoGeneros();
-        graficoObjetivos();
-    });
-
-</script>
+<script src="../js/dashboard.js"></script>

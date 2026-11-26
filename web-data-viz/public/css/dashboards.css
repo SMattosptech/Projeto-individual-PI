@@ -255,3 +255,7 @@ body {
 .laranja {
     background-color: #D4822E;
 }
+
+.kpi .rotulo {
+    letter-spacing: 1px;
+}
