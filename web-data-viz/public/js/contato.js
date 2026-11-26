@@ -19,7 +19,7 @@ form.addEventListener('submit', async function (evento) {
 
         setTimeout(() => {
             window.location.href = "login.html";
-        }, 2000);
+        }, 3500);
 
         return;
     }
