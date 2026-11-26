@@ -63,14 +63,14 @@
 
                     <div class="campo">
                         <label for="nome">Seu nome</label>
-                        <input type="text" id="nome" name="nome" maxlength="100"
-                            placeholder="Como você se chama?" required>
+                        <input type="text" id="nome" name="nome" maxlength="100" placeholder="Como você se chama?"
+                            required>
                     </div>
 
                     <div class="campo">
                         <label for="email">Seu e-mail</label>
-                        <input type="email" id="email" name="email" maxlength="150"
-                            placeholder="voce@exemplo.com" required>
+                        <input type="email" id="email" name="email" maxlength="150" placeholder="voce@exemplo.com"
+                            required>
                     </div>
 
                     <div class="campo">
@@ -105,62 +105,74 @@
 
 </body>
 
-   <script>
-   
-        const API_URL = '/contato';
+<script>
 
-        const form = document.getElementById('form-contato');
-        const retorno = document.getElementById('retorno');
-        const botao = form.querySelector('button');
+    const API_URL = '/contato';
 
-        function mostrar(texto, tipo) {
-            retorno.textContent = texto;
-            retorno.className = 'retorno ' + tipo;
+    const form = document.getElementById('form-contato');
+    const retorno = document.getElementById('retorno');
+    const botao = form.querySelector('button');
+
+    function mostrar(texto, tipo) {
+        retorno.textContent = texto;
+        retorno.className = 'retorno ' + tipo;
+    }
+
+    form.addEventListener('submit', async function (evento) {
+        evento.preventDefault();
+
+        const idUsuario = sessionStorage.ID_USUARIO || localStorage.getItem("idUsuario");
+
+        if (!idUsuario) {
+            mostrar("Para enviar uma mensagem, você precisa estar logado ou cadastrado.", "erro");
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 2000);
+
+            return;
         }
 
-        form.addEventListener('submit', async function (evento) {
-            evento.preventDefault();
+        const dados = {
+            nome: form.nome.value.trim(),
+            email: form.email.value.trim(),
+            mensagem: form.mensagem.value.trim()
+        };
 
-            const dados = {
-                nome: form.nome.value.trim(),
-                email: form.email.value.trim(),
-                mensagem: form.mensagem.value.trim()
-            };
+        if (!dados.nome || !dados.email || !dados.mensagem) {
+            mostrar('Preencha nome, e-mail e mensagem para enviar.', 'erro');
+            return;
+        }
 
-            if (!dados.nome || !dados.email || !dados.mensagem) {
-                mostrar('Preencha nome, e-mail e mensagem para enviar.', 'erro');
-                return;
+        if (!form.email.checkValidity()) {
+            mostrar('Digite um e-mail válido.', 'erro');
+            return;
+        }
+
+        botao.disabled = true;
+        mostrar('Enviando...', '');
+
+        try {
+            const resposta = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            });
+
+            if (!resposta.ok) {
+                throw new Error('Falha ao enviar');
             }
 
-            if (!form.email.checkValidity()) {
-                mostrar('Digite um e-mail válido.', 'erro');
-                return;
-            }
+            form.reset();
+            mostrar('Mensagem enviada! Obrigado por escrever.', 'sucesso');
+        } catch (erro) {
+            mostrar('Não foi possível enviar agora. Tente novamente em instantes.', 'erro');
+        } finally {
+            botao.disabled = false;
+        }
+    });
+</script>
 
-            botao.disabled = true;
-            mostrar('Enviando...', '');
-
-            try {
-                const resposta = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(dados)
-                });
-
-                if (!resposta.ok) {
-                    throw new Error('Falha ao enviar');
-                }
-
-                form.reset();
-                mostrar('Mensagem enviada! Obrigado por escrever.', 'sucesso');
-            } catch (erro) {
-                mostrar('Não foi possível enviar agora. Tente novamente em instantes.', 'erro');
-            } finally {
-                botao.disabled = false;
-            }
-        });
-    </script>
-    
-    <script src="../js/navegacao.js"></script>
+<script src="../js/navegacao.js"></script>
 
 </html>
