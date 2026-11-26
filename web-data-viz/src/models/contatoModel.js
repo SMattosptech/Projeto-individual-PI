@@ -1,23 +1,13 @@
-const mysql = require('mysql2/promise');
+var database = require("../database/config");
 
-const mySqlConfig = {
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT
-};
-
-async function salvarContato(dados) {
-    const conexao = await mysql.createConnection(mySqlConfig);
-    try {
-        const sql = `INSERT INTO contato (nome, email, mensagem) VALUES (?, ?, ?)`;
-        const valores = [dados.nome, dados.email, dados.mensagem];
-        const [result] = await conexao.execute(sql, valores);
-        return result;
-    } finally {
-        await conexao.end();
-    }
+// A tabela contato guarda só o id do usuário e a mensagem.
+// Nome e e-mail ficam na tabela usuario (aparecem com JOIN).
+function salvarContato(dados) {
+    var instrucaoSql = `
+        INSERT INTO contato (fk_usuario, mensagem) VALUES ('${dados.fk_usuario}', '${dados.mensagem}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
