@@ -48,6 +48,8 @@ function graficoObjetivos() {
     return database.executar("SELECT * FROM vw_grafico_objetivos;");
 }
 
+// exporta todas as funções de KPIs e gráficos para que outros arquivos 
+// (como o arquivo de rotas) possam importá-las e executá-las usando o require()
 module.exports = {
     kpiTotalUsuarios,
     kpiNovosCadastros,
