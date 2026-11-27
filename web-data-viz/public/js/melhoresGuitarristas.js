@@ -1,4 +1,4 @@
-/* LISTA DE GUITARRISTAS */
+/* lista de guitarristas json */
 
 let listaGuitarristas = [
     {
@@ -118,8 +118,9 @@ let listaGuitarristas = [
     }
 ];
 
-/* EXIBIÇÃO DOS GUITARRISTAS */
+/* exibição dos guitarristas */
 
+// busca um elemento pelo id
 const div_exibir = document.querySelector("#div_exibir");
 
 div_exibir.innerHTML = "";
@@ -152,7 +153,7 @@ for (let i = 0; i < listaGuitarristas.length; i++) {
 }
 
 
-/* CONFIGURAÇÃO DO CARROSSEL */
+/* configuração do carrossel */
 
 const guitarristas = document.querySelectorAll(".guitarrista");
 
@@ -163,7 +164,7 @@ let guitarristaAtual = 0;
 const quantidadeGuitarristas = guitarristas.length;
 
 
-/* FUNÇÃO PARA AVANÇAR O CARROSSEL */
+/* função para avançar carrossel */
 
 function avancarCarrossel() {
 
