@@ -104,7 +104,7 @@ formulario.addEventListener("submit", async function (evento) {
 
         if (resposta.ok) {
             // Direciona para a dashboard após salvar o perfil (fluxo de primeiro acesso)
-            window.location = 'dashboard.html';
+            window.location = '../index.html';
         } else {
             erroEnvio.textContent = "Não foi possível enviar agora. Tente novamente.";
             erroEnvio.hidden = false;

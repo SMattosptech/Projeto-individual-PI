@@ -10,10 +10,6 @@
 
     <script src="../js/sessao.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/login.css">
 </head>
 
@@ -133,7 +129,7 @@ function entrar() {
                 // Verificando se o usuário já preencheu o perfil
                     setTimeout(function () {
                     if (json.possuiPerfil) {
-                        window.location = "dashboard.html";
+                        window.location = "../index.html";
                     } else {
                         window.location = "formulario.html";
                     }
